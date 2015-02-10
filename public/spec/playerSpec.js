@@ -9,7 +9,6 @@ describe('Player', function(){
   describe('When initialised', function(){
 
     it('Should appear on the screen', function(){
-      
     });
 
   });
