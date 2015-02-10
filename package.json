@@ -1,0 +1,23 @@
+{
+  "name": "pig-pong",
+  "version": "1.0.0",
+  "description": "PigPong",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matteomanzo/PigPong.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matteomanzo/PigPong/issues"
+  },
+  "homepage": "https://github.com/matteomanzo/PigPong"
+}
