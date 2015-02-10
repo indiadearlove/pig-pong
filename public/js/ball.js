@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1250, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1400, 900, Phaser.CANVAS, 'flyer', { preload: preload, create: create, update: update });
 
 function preload() {
   game.load.image('flyer', 'image/zombiepig.jpg');
@@ -11,25 +11,20 @@ function create() {
   
   game.physics.startSystem(Phaser.Physics.ARCADE);
 
-  image = game.add.sprite(0, 0, 'flyer');
+  ball = game.add.sprite(0, 0, 'flyer');
   
-  image.scale.setTo(0.08, 0.08);
+  ball.scale.setTo(0.02, 0.02);
 
-  game.physics.enable(image, Phaser.Physics.ARCADE);
+  game.physics.enable(ball, Phaser.Physics.ARCADE);
 
-  image.body.velocity.setTo(200,200);
+  ball.body.velocity.setTo(200,200);
     
-  image.body.collideWorldBounds = true;
+  ball.body.collideWorldBounds = true;
     
-  image.body.bounce.set(1);
+  ball.body.bounce.set(1);
 
 };
 
 function update () {
     
-};
-
-function render () {
-    game.debug.spriteInfo(image,32,32);
-
 };
