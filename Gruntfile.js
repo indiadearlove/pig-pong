@@ -7,10 +7,18 @@ grunt.initConfig({
      files: {
        src: ['test/**/*']
      }
-   }
- })
+   },
+   express: {
+      test: {
+        options: {
+          script: 'server.js'
+        }
+      }
+    } 
+ });
 
  grunt.loadNpmTasks('grunt-mocha-casperjs');
- grunt.registerTask('default', ['mocha_casperjs']);
+ grunt.loadNpmTasks('grunt-express-server');
+ grunt.registerTask('default', ['express:test', 'mocha_casperjs', 'express:test:stop']);
 
 };

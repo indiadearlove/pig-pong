@@ -1,7 +1,7 @@
 {
   "name": "pig-pong",
   "version": "1.0.0",
-  "description": "",
+  "description": "PigPong",
   "main": "Gruntfile.js",
   "directories": {
     "test": "test"
@@ -12,18 +12,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ciawalsh/Pig-Pong.git"
+    "url": "https://github.com/matteomanzo/PigPong.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ciawalsh/Pig-Pong/issues"
+    "url": "https://github.com/matteomanzo/PigPong/issues"
   },
-  "homepage": "https://github.com/ciawalsh/Pig-Pong",
+  "homepage": "https://github.com/matteomanzo/PigPong",
   "devDependencies": {
     "casperjs": "^1.1.0-beta3",
+    "chai": "^1.10.0",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
+    "grunt-express-server": "^0.4.19",
     "grunt-jasmine": "^0.1.0",
     "grunt-mocha-casperjs": "^1.4.1",
     "jasmine": "^2.2.1",
@@ -31,6 +33,8 @@
     "mocha-casperjs": "^0.5.3"
   },
   "dependencies": {
-    "express": "^4.11.2"
+    "ejs": "^2.2.4",
+    "express": "^4.11.2",
+    "phantomjs": "^1.9.15"
   }
 }

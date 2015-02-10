@@ -3,8 +3,11 @@ var app = express();
 var server = require('http').createServer(app);
 var port = 9999;
 
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function(request, response){
-  response.send('hello world');
+  response.render('index');
 });
 
 server.listen(port, function(){
