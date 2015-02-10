@@ -1,1 +1,24 @@
-<h1> PigPong!! </h1>
+<!doctype html>
+<html>
+  <head>
+    <title>Pig-Pong</title>
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<audio controls autoplay loop>
+  <source src="audio link here" type="audio/mpeg">
+</audio>
+<section id="board-container">
+  <article class="board">
+    <canvas id="canvas" width="900" height="900"></canvas>
+      </article>
+    </section>
+  <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
+  <script src='socket.io/socket.io.js'></script>
+  <script type="text/javascript" src="js/ball.js"></script>
+  <script type="text/javascript" src="js/game.js"></script>
+  <script type="text/javascript" src="js/player.js"></script>
+</body>
+</html>
