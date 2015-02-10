@@ -1,4 +1,3 @@
-
 var player = new Phaser.Game(1400, 900, Phaser.AUTO, 'farmer', { preload: preload, create: create, update: update });
 
 function preload() {
