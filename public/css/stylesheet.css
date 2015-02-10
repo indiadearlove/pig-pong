@@ -1,0 +1,61 @@
+.form-control {
+	z-index: 30;
+}
+
+.jumbotron { 
+	background: #EEE; 
+	border: 1px solid #333; 
+	display: block; 
+	list-style: none; 
+	padding: 0 10px; 
+	position: relative; 
+	width: 600px; 
+}
+
+.jumbotron { 
+	display: inline-block; 
+	margin: 0; 
+	padding: 5px 10px; 
+	position: relative; 
+	text-align: center; 
+	vertical-align: top; 
+}
+
+.jumbotron { 
+	border-left: 1px solid #333; 
+}
+
+.jumbotron { 
+	background: #EEE; 
+	border: 1px solid #333; 
+	border-top: 0;
+	display: block; 
+	height: 0; 
+	list-style: none; 
+	margin: 5px 0 0 -11px; 
+	overflow: hidden; 
+	padding: 0; 
+	position: absolute; 
+	transition: height .4s cubic-bezier(0, 1.8, 1, 1.8); 
+	width:111px; 
+}
+
+.jumbotron.submenu:hover > ul,
+.jumbotron.submenu.hover > ul { 	
+	height: 96px; 
+}
+
+.jumbotron.submenu > ul li { 
+	border: 0; 
+	display: block; 
+	font-size: 12px; 
+	margin: 0; 
+	padding: 5px 0 5px 10px; 
+	text-align: left; 
+}
+
+.jumbotron { 
+	color: #333; 
+	text-decoration: none; 
+	text-shadow: 0 1px 0 #999; 
+}
