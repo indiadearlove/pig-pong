@@ -9,30 +9,30 @@ body {
 }
 
 #jumbotron {
-  position: absolute;
+    position: absolute;
 }
 
 #mud{
 	margin-right: 50em;
 	visibility: hidden;
+	z-index: -5;
 
 }
 
 #mud2 {
    position: absolute;
-   visibility: hidden;
-   display: none;
-   
-   z-index: -1;
+   display: none;  
+   z-index: -5;
 }
 
-#mud3 {
+/*#mud3 {
    
-   visibility: hidden;
    display: none;
-}
+   z-index: -5;
+}*/
 
 #game-mainpage {
+  margin: 0 0 auto;
   display: inline-block;
 }
 /*#mud4 {

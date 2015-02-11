@@ -1,8 +1,10 @@
-var game = new Phaser.Game(1400, 900, Phaser.CANVAS, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1400, 900, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
 
 // Initializing game =======================================================================
 
 function preload() {
+
+
 
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
@@ -12,22 +14,19 @@ function preload() {
 var character;
 var ball;
 var cursors;
-var timer;
-var group;
+var timer
 
 function create() {
-  Phaser.Timer.create(false);
-  if (destroySprite) {Phaser.Timer.pause};
+
   game.physics.startSystem(Phaser.Physics.ARCADE);
   
-  // group = game.add.group();
-  // group.enableBody = true;
-  // group.physicsBodyType = Phaser.Physics.ARCADE;
   createPlayer();
   createBall();
 
   cursors = game.input.keyboard.createCursorKeys();
 
+  timer = game.time.create(true);
+  timer.start()
 
 }
 
@@ -42,13 +41,11 @@ function update() {
 
     ball.rotation += ball.body.velocity.x/10000;
 
-
 }
 
 function render() {
 
-    game.debug.text('Time: ' + game.time.totalElapsedSeconds(), 32, 32);
-    game.debug.text("Time until event: " + timer, 10, 20);
+    game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
 }
 
@@ -62,9 +59,11 @@ function createPlayer() {
   game.physics.enable(character, Phaser.Physics.ARCADE);
   character.body.collideWorldBounds = true;
   character.body.bounce.set(0.3);
+
 }
 
 function createBall() {
+
 
   ball = game.add.sprite(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'flyer');
 
@@ -75,10 +74,16 @@ function createBall() {
   ball.body.bounce.set(1.1);
   ball.body.velocity.setTo(400,400);
 
+  cursors = game.input.keyboard.createCursorKeys();
 }
 
 function destroySprite() {
 
   character.kill();
+  var score = timer;
+  console.log(score);
+  console.log(score._now);
+  console.log(score._started);
+  console.log((score._now - score._started)/1000);
 
 }
