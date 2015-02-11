@@ -1,7 +1,5 @@
 var game = new Phaser.Game(1400, 900, Phaser.CANVAS, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
 
-// Initializing game =======================================================================
-
 function preload() {
 
   game.load.image('farmer', 'image/farmer.png');
@@ -37,7 +35,7 @@ function update() {
     else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
     if (cursors.up.isDown) { character.body.velocity.y -= 8; }
     else if (cursors.down.isDown) { character.body.velocity.y += 8; }
-
+    
     ball.rotation += ball.body.velocity.x/10000;
 
 
@@ -48,9 +46,8 @@ function render() {
     game.debug.text('Time: ' + game.time.totalElapsedSeconds(), 32, 32);
     game.debug.text("Time until event: " + timer.duration.toFixed(5), 10, 20);
 
-}
 
-// Game methods ============================================================================
+}
 
 function createPlayer() {
 
@@ -77,7 +74,8 @@ function createBall() {
 }
 
 function destroySprite() {
-
+  timer.stop(false);
   character.kill();
+
 
 }
