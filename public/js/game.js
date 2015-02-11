@@ -1,4 +1,6 @@
-var game = new Phaser.Game(1400, 900, Phaser.CANVAS, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1400, 900, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
+
+// Initializing game
 
 function preload() {
 
@@ -10,48 +12,42 @@ function preload() {
 var character;
 var ball;
 var cursors;
-var timer;
+var timer
 
 function create() {
 
   game.physics.startSystem(Phaser.Physics.ARCADE);
   
   createPlayer();
-  
-  
-
-
   createBall();
 
   cursors = game.input.keyboard.createCursorKeys();
 
-  timer = game.time.create(false);
-  // timer.add(3000, createPlayer, this);
-  timer.start();
+  timer = game.time.create(true);
+  timer.start()
 
 }
 
 function update() {
 
-    game.physics.arcade.collide(character, ball, destroySprite);
+    game.physics.arcade.collide(character, balls, destroySprite);
 
     if (cursors.left.isDown) { character.body.velocity.x -= 8; }
     else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
     if (cursors.up.isDown) { character.body.velocity.y -= 8; }
     else if (cursors.down.isDown) { character.body.velocity.y += 8; }
-    
-    ball.rotation += ball.body.velocity.x/10000;
 
+    
 
 }
 
 function render() {
 
-    game.debug.text('Time: ' + game.time.totalElapsedSeconds(), 32, 32);
-    game.debug.text("Time until event: " + timer.duration.toFixed(5), 10, 20);
-
+  game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
 }
+
+// Game methods
 
 function createPlayer() {
 
@@ -60,35 +56,45 @@ function createPlayer() {
   character.anchor.setTo(0.5, 0.5);
   game.physics.enable(character, Phaser.Physics.ARCADE);
   character.body.collideWorldBounds = true;
-  character.body.bounce.set(0.3);
-
+  character.body.bounce.set(0.3);  
+// ball.rotation += ball.body.velocity.x/1000;
 }
 
 function createBall() {
 
   balls = game.add.group();
-  balls.enableBody = true;
-  balls.physicsBodyType = Phaser.Physics.ARCADE;
+  
+  //change i for number of balls
 
-  for (var i = 0; i < 5; i++)
+  for (var i = 0; i < 3; i++)
   {
+
     this.x = game.world.randomX + game.rnd.integerInRange(100,250);
     this.y = game.world.randomX + game.rnd.integerInRange(100,250);
-    ball = game.add.sprite(this.x, this.y, 'flyer');
+    var ball = balls.create(this.x, this.y, 'flyer');
     ball.scale.setTo(0.02, 0.02);
     ball.anchor.setTo(0.5, 0.5);
     game.physics.enable(ball, Phaser.Physics.ARCADE);
-    ball.body.collideWorldBounds = true;
-    ball.body.bounce.set(1.1);
-    ball.body.velocity.setTo(400,400);
-    ball.body.rotation += ball.body.velocity.x/10000;
+
   }
+
+  balls.setAll('body.rotation', 1)
+  balls.setAll('body.collideWorldBounds', true);
+  balls.setAll('body.bounce.x', 1);
+  balls.setAll('body.bounce.y', 1);
+  balls.setAll('body.velocity.x', 400);
+  balls.setAll('body.velocity.y', 400)
 
   cursors = game.input.keyboard.createCursorKeys();
 }
 
 function destroySprite() {
-  timer.pause(clearEvents);
+
   character.kill();
+  var score = timer;
+  console.log(score);
+  console.log(score._now);
+  console.log(score._started);
+  console.log((score._now - score._started)/1000);
 
 }
