@@ -25,16 +25,24 @@ function create() {
 
 
 // BALL
-  ball = game.add.sprite(0, 0, 'flyer');
+  newball(0, 0);
+  newball(30, 400);
+
+
+
+  cursors = game.input.keyboard.createCursorKeys();
+}
+
+function newball(x, y) {
+
+  ball = game.add.sprite(x, y, 'flyer');
   ball.scale.setTo(0.02, 0.02);
   ball.anchor.setTo(0.5, 0.5);
   game.physics.enable(ball, Phaser.Physics.ARCADE);
-  // ball.enableBody = true;
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.1);
   ball.body.velocity.setTo(400,400);
 
-  cursors = game.input.keyboard.createCursorKeys();
 }
 
 function update() {
