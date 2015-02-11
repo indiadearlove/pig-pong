@@ -14,8 +14,7 @@ app.get('/', function(request, response){
 });
 
 app.post('/', function(req, res) {
-  // res.send(req.body.username);
-  res.redirect('/game');
+  res.render('game', {username: req.body.username});
 });
 
 app.get('/game', function(request, response){
