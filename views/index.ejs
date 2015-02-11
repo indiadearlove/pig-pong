@@ -1,43 +1,47 @@
 <!doctype html>
 <html>
   <head>
-
     <title>Pig-Pong</title>
-  <link rel="stylesheet" href="http://www.justinaguilar.com/animations/css/animations.css">
-  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <link rel="stylesheet" href="http://www.justinaguilar.com/animations/css/animations.css">
+      <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+      <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
-<img src="/image/mud.png" id="mud" class="expandOpen"> 
-<img src="/image/mud.png" id="mud2" class="expandOpen"> 
-<div class="container" style="width:40em">
-  <div class="jumbotron" style="background:rgba(225, 225, 225, 0.8);color:white">
-    <div class="input group">
-    
-    <h2>Enter your name:</h2>
-
-    <form action="/" method="post">
-	    <input name="username" class="form-control" type="text">
-	    <input type="hidden" type="submit" id="submit">
-	  </form>
+  <div class="titleandsignin">
+      <div class="container"><img src="/image/mud.png" id="mud" class="expandOpen"></div>
     </div>
+      <div class="container"><img src="/image/logo.png" id="logo" class="expandOpen"></div>
+    </div>
+        <div class="container"><img src="/image/mud.png" id="mud2" class="expandOpen"></div>
+      </div> 
+    </div>
+    <div class="container" style="width: 40em;">
+      <div class="jumbotron" style="background:rgba(225, 225, 225, 0.8);color:red">
+         <div class="input group">
+    
+          <h2>Enter your name:</h2>
+
+          <form action="/" method="post">
+	          <input name="username" class="form-control" type="text">
+	          <input type="hidden" type="submit" id="submit">
+	        </form>
+        </div>
+      </div>
+    </div>
+    <img src="/image/mud.png" id="mud3" class="expandOpen"> 
   </div>
-</div>
-<img src="/image/mud.png" id="mud3" class="expandOpen"> 
-<!-- <img src="/images/mud.png" id="mud4" class="expandOpen">  -->
 
 <script>
   $(document).ready(function() {
     setTimeout(function(){
     	$('#mud2').delay(800).fadeIn(50);
     	$('#mud3').delay(1600).fadeIn(50);
-    	// $('#mud4').delay(2000).fadeIn(50);
+    	$('#logo').delay(2200).fadeIn(50);
     });
   });  
 </script>
-  <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
  <!--  // <script src='socket.io/socket.io.js'></script> -->
 </body>
 </html>
