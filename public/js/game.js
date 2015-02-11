@@ -14,7 +14,9 @@ function preload() {
 var character;
 var ball;
 var cursors;
-var timer
+var timer;
+var score;
+var tod;
 
 function create() {
 
@@ -80,10 +82,10 @@ function createBall() {
 function destroySprite() {
 
   character.kill();
-  var score = timer;
+  score = timer;
   console.log(score);
   console.log(score._now);
   console.log(score._started);
   console.log((score._now - score._started)/1000);
-
+  tod = ((score._now - score._started)/1000);
 }
