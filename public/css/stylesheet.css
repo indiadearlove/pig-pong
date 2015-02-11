@@ -33,7 +33,7 @@ body {
 }
 
 #game-mainpage {
-  position: inline-block;
+  display: inline-block;
 }
 /*#mud4 {
   visibility: hidden;

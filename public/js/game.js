@@ -16,15 +16,13 @@ var timer;
 var group;
 
 function create() {
-  timer = game.time.create(false);
-  timer.add(3000, createBall, this);
-  timer.start();
-
+  Phaser.Timer.create(false);
+  if (destroySprite) {Phaser.Timer.pause};
   game.physics.startSystem(Phaser.Physics.ARCADE);
   
-  group = game.add.group();
-  group.enableBody = true;
-  group.physicsBodyType = Phaser.Physics.ARCADE;
+  // group = game.add.group();
+  // group.enableBody = true;
+  // group.physicsBodyType = Phaser.Physics.ARCADE;
   createPlayer();
   createBall();
 
@@ -50,7 +48,7 @@ function update() {
 function render() {
 
     game.debug.text('Time: ' + game.time.totalElapsedSeconds(), 32, 32);
-    game.debug.text("Time until event: " + timer.duration.toFixed(5), 10, 20);
+    game.debug.text("Time until event: " + timer, 10, 20);
 
 }
 
@@ -58,7 +56,7 @@ function render() {
 
 function createPlayer() {
 
-  character = game.add.sprite(game.world.centerX-30, game.world.centerY-30, 'farmer');
+  character = game.add.sprite(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'farmer');
   character.scale.setTo(0.25, 0.25);
   character.anchor.setTo(0.5, 0.5);
   game.physics.enable(character, Phaser.Physics.ARCADE);
@@ -68,7 +66,7 @@ function createPlayer() {
 
 function createBall() {
 
-  ball = game.group.create(0, 0, 'flyer', 1);
+  ball = game.add.sprite(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'flyer');
 
   ball.scale.setTo(0.02, 0.02);
   ball.anchor.setTo(0.5, 0.5);
