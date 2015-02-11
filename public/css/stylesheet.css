@@ -3,7 +3,7 @@ html {
 }
 
 body {
-	background-image: url(/images/grass.jpg);
+	background-image: url(/image/grass.jpg);
 	min-height: 100%;
 	text-align: center;
 }
