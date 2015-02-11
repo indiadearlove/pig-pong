@@ -34,14 +34,14 @@ function create() {
 
 function update() {
 
-    game.physics.arcade.collide(character, ball, destroySprite);
+    game.physics.arcade.collide(character, balls, destroySprite);
 
     if (cursors.left.isDown) { character.body.velocity.x -= 8; }
     else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
     if (cursors.up.isDown) { character.body.velocity.y -= 8; }
     else if (cursors.down.isDown) { character.body.velocity.y += 8; }
 
-    ball.rotation += ball.body.velocity.x/10000;
+    // ball.rotation += ball.body.velocity.x/1000;
 
 }
 
@@ -66,7 +66,6 @@ function createPlayer() {
 
 function createBall() {
 
-
   ball = game.add.sprite(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'flyer');
 
   ball.scale.setTo(0.02, 0.02);
@@ -75,6 +74,25 @@ function createBall() {
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.1);
   ball.body.velocity.setTo(400,400);
+
+  balls = game.add.group();
+  
+  //change i for number of balls
+  for (var i = 0; i < 3; i++)
+  {
+
+	  var ball = balls.create(game.rnd.integerInRange(100, 700), game.rnd.integerInRange(32, 200), 'flyer');
+	  ball.scale.setTo(0.02, 0.02);
+	  ball.anchor.setTo(0.5, 0.5);
+	  game.physics.enable(ball, Phaser.Physics.ARCADE);
+
+  }
+
+  balls.setAll('body.collideWorldBounds', true);
+  balls.setAll('body.bounce.x', 1);
+  balls.setAll('body.bounce.y', 1);
+  balls.setAll('body.velocity.x', 400);
+  balls.setAll('body.velocity.y', 400)
 
   cursors = game.input.keyboard.createCursorKeys();
 }
