@@ -22,8 +22,9 @@ function create() {
   createBall();
 
   cursors = game.input.keyboard.createCursorKeys();
-  game.time.events.repeat(Phaser.Timer.SECOND * 2, 1, createBall, this);
+
   timer = game.time.create(false);
+  // timer.add(3000, createPlayer, this);
   timer.start();
 
 }
@@ -44,7 +45,8 @@ function update() {
 
 function render() {
 
-    game.debug.text('Time: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+    game.debug.text('Time: ' + game.time.totalElapsedSeconds(), 32, 32);
+    game.debug.text("Time until event: " + timer.duration.toFixed(5), 10, 20);
 
 }
 
@@ -77,6 +79,5 @@ function createBall() {
 function destroySprite() {
 
   character.kill();
-
 
 }
