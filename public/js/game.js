@@ -4,7 +4,7 @@ var game = new Phaser.Game(1400, 900, Phaser.AUTO, 'game-mainpage', { preload: p
 
 function preload() {
 
-  game.load.image('farmer', 'images/farmer.jpg');
+  game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
 
 }
@@ -33,6 +33,8 @@ function update() {
     if (cursors.up.isDown) { character.body.velocity.y -= 8; }
     else if (cursors.down.isDown) { character.body.velocity.y += 8; }
 
+    ball.rotation += ball.body.velocity.x/10000;
+
 }
 
 function render() {
@@ -58,11 +60,13 @@ function createBall() {
 
   ball = game.add.sprite(0, 0, 'flyer');
   ball.scale.setTo(0.02, 0.02);
+  ball.anchor.setTo(0.5, 0.5);
   game.physics.enable(ball, Phaser.Physics.ARCADE);
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.1);
   ball.body.velocity.setTo(400,400);
 
+  cursors = game.input.keyboard.createCursorKeys();
 }
 
 function destroySprite() {
