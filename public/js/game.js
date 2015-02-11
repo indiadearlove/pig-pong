@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1400, 900, Phaser.CANVAS, 'game-mainpage', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1400, 900, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update });
 
 function preload() {
 
@@ -28,15 +28,19 @@ function create() {
   ball = game.add.sprite(0, 0, 'flyer');
   ball.scale.setTo(0.02, 0.02);
   game.physics.enable(ball, Phaser.Physics.ARCADE);
-  // ball.enableBody = true;
+
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.1);
   ball.body.velocity.setTo(400,400);
 
 // RANDOM
-  game.events.onInputDown(character);
 
   cursors = game.input.keyboard.createCursorKeys();
+}
+
+function createCharacter() {
+
+    character.create('farmer');
 }
 
 function update() {
