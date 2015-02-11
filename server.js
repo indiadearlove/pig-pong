@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-
 var server = require('http').createServer(app);
 var port = 9999;
 
@@ -14,8 +13,13 @@ app.get('/', function(request, response){
   response.render('index');
 });
 
-app.post('/game', function(req, res) {
-  res.send(req.body.username);
+app.post('/', function(req, res) {
+  // res.send(req.body.username);
+  res.redirect('/game');
+});
+
+app.get('/game', function(request, response){
+  response.render('game');
 });
 
 server.listen(port, function(){
