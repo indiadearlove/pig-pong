@@ -11,19 +11,23 @@ var character;
 var ball;
 var cursors;
 var timer;
+var group;
 
 function create() {
+  timer = game.time.create(false);
+  timer.add(3000, createBall, this);
+  timer.start();
 
   game.physics.startSystem(Phaser.Physics.ARCADE);
   
+  group = game.add.group();
+  group.enableBody = true;
+  group.physicsBodyType = Phaser.Physics.ARCADE;
   createPlayer();
   createBall();
 
   cursors = game.input.keyboard.createCursorKeys();
 
-  timer = game.time.create(false);
-  // timer.add(3000, createPlayer, this);
-  timer.start();
 
 }
 
@@ -57,12 +61,12 @@ function createPlayer() {
   game.physics.enable(character, Phaser.Physics.ARCADE);
   character.body.collideWorldBounds = true;
   character.body.bounce.set(0.3);
-
 }
 
 function createBall() {
 
-  ball = game.add.sprite(0, 0, 'flyer');
+  ball = game.group.create(0, 0, 'flyer', 1);
+
   ball.scale.setTo(0.02, 0.02);
   ball.anchor.setTo(0.5, 0.5);
   game.physics.enable(ball, Phaser.Physics.ARCADE);
@@ -70,7 +74,6 @@ function createBall() {
   ball.body.bounce.set(1.1);
   ball.body.velocity.setTo(400,400);
 
-  cursors = game.input.keyboard.createCursorKeys();
 }
 
 function destroySprite() {
