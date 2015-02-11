@@ -33,15 +33,22 @@ function create() {
   ball.body.bounce.set(1.1);
   ball.body.velocity.setTo(400,400);
 
+// RANDOM
+  game.events.onInputDown(character);
+
   cursors = game.input.keyboard.createCursorKeys();
 }
 
 function update() {
 
-    game.physics.arcade.collide(character, ball);
+    game.physics.arcade.collide(character, ball, destroySprite);
 
     if (cursors.left.isDown) { character.body.velocity.x -= 8; }
     else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
     if (cursors.up.isDown) { character.body.velocity.y -= 8; }
     else if (cursors.down.isDown) { character.body.velocity.y += 8; }
+}
+
+function destroySprite() {
+  character.kill();
 }
