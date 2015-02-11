@@ -2,7 +2,7 @@ var game = new Phaser.Game(1400, 900, Phaser.CANVAS, 'game-mainpage', { preload:
 
 function preload() {
 
-  game.load.image('farmer', 'images/farmer.jpg');
+  game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
 
 }
