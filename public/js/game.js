@@ -33,6 +33,9 @@ function create() {
   ball.body.bounce.set(1.1);
   ball.body.velocity.setTo(400,400);
 
+// RANDOM
+  game.events.onInputDown(character);
+
   cursors = game.input.keyboard.createCursorKeys();
 }
 
