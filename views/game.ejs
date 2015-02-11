@@ -14,14 +14,22 @@
 
         <h3> <u>High Scores</u> </h3>
 
-        <li> <%- username %> - ??? </li>
-
+        <li> <%- username %> </li>
+        <section id='highscore'>??</section>
       </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
-    <!--  // <script src="src/interface.js"></script> -->
+    <script type='text/javascript'>
+      $(document).ready(function() {
+      $('#highscore').on('click', function() {
+      destroySprite(tod);
+      console.log(tod);
+      });
+
+    });
+    </script>
     <script type="text/javascript" src="js/game.js"></script>
    
   </body>

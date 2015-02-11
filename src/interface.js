@@ -1,5 +1,7 @@
-// $(document).ready(function() {
-//   $('#high-scores-table').on()
+$(document).ready(function() {
+  $('#highscore').on('click', function() {
+  destroySprite();
+  console.log(tod);
+  });
 
-
-// });
+});

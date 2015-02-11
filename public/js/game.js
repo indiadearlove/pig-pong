@@ -83,9 +83,9 @@ function destroySprite() {
 
   character.kill();
   score = timer;
-  console.log(score);
-  console.log(score._now);
-  console.log(score._started);
-  console.log((score._now - score._started)/1000);
+  // console.log(score);
+  // console.log(score._now);
+  // console.log(score._started);
+  // console.log((score._now - score._started)/1000);
   tod = ((score._now - score._started)/1000);
 }
