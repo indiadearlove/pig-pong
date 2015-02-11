@@ -1,61 +1,38 @@
-.form-control {
-	z-index: 30;
+html {
+	height: 100%;
 }
 
-.jumbotron { 
-	background: #EEE; 
-	border: 1px solid #333; 
-	display: block; 
-	list-style: none; 
-	padding: 0 10px; 
-	position: relative; 
-	width: 600px; 
+body {
+	background-image: url(/images/grass.jpg);
+	min-height: 100%;
+	text-align: center;
 }
 
-.jumbotron { 
-	display: inline-block; 
-	margin: 0; 
-	padding: 5px 10px; 
-	position: relative; 
-	text-align: center; 
-	vertical-align: top; 
+#jumbotron {
+  position: absolute;
 }
 
-.jumbotron { 
-	border-left: 1px solid #333; 
+#mud{
+	margin-right: 50em;
+	visibility: hidden;
+
 }
 
-.jumbotron { 
-	background: #EEE; 
-	border: 1px solid #333; 
-	border-top: 0;
-	display: block; 
-	height: 0; 
-	list-style: none; 
-	margin: 5px 0 0 -11px; 
-	overflow: hidden; 
-	padding: 0; 
-	position: absolute; 
-	transition: height .4s cubic-bezier(0, 1.8, 1, 1.8); 
-	width:111px; 
+#mud2 {
+   position: absolute;
+   visibility: hidden;
+   display: none;
+   
+   z-index: -1;
 }
 
-.jumbotron.submenu:hover > ul,
-.jumbotron.submenu.hover > ul { 	
-	height: 96px; 
+#mud3 {
+   
+   visibility: hidden;
+   display: none;
 }
 
-.jumbotron.submenu > ul li { 
-	border: 0; 
-	display: block; 
-	font-size: 12px; 
-	margin: 0; 
-	padding: 5px 0 5px 10px; 
-	text-align: left; 
-}
-
-.jumbotron { 
-	color: #333; 
-	text-decoration: none; 
-	text-shadow: 0 1px 0 #999; 
-}
+/*#mud4 {
+  visibility: hidden;
+  display: none;
+}*/

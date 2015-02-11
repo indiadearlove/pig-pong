@@ -1,28 +1,47 @@
-// var pigSprite;
-
-// var game = new Phaser.Game(
-// 	800, 600, Phaser.AUTO, 'opening scene',
-// 	 { preload: preload, create: create, update: update }
-// );
+// var game = new Phaser.Game(1400, 900, Phaser.CANVAS, 'game-mainpage', { preload: preload, create: create, update: update });
 
 // function preload() {
 
-//     game.load.image('logo', 'images/mud.png'); 
+//   game.load.image('farmer', 'images/farmer.jpg');
+//   game.load.image('flyer', 'image/zombiepig.jpg');
+
 // }
+
+// var character;
+// var ball;
+// var cursors;
 
 // function create() {
 
-// 	game.add.tileSprite(0, 0, 800, 600, 'mud');
+//   game.physics.startSystem(Phaser.Physics.ARCADE);
 
-//     pigSprite = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');
-    
-//     pigSprite.anchor.setTo(0.5, 0.5);
-//     pigSprite.alpha = 0;
+// // CHARACTER
+//   character = game.add.sprite(game.world.centerX-30, game.world.centerY-30, 'farmer');
+//   character.scale.setTo(0.25, 0.25);
+//   character.anchor.setTo(0.5, 0.5);
+//   game.physics.enable(character, Phaser.Physics.ARCADE);
+//   character.body.collideWorldBounds = true;
+//   character.body.bounce.set(0.3);
 
-//     game.add.tween(pigSprite).to( { alpha: 1 }, 500);
 
+// // BALL
+//   ball = game.add.sprite(0, 0, 'flyer');
+//   ball.scale.setTo(0.02, 0.02);
+//   game.physics.enable(ball, Phaser.Physics.ARCADE);
+//   // ball.enableBody = true;
+//   ball.body.collideWorldBounds = true;
+//   ball.body.bounce.set(1.1);
+//   ball.body.velocity.setTo(400,400);
+
+//   cursors = game.input.keyboard.createCursorKeys();
 // }
 
 // function update() {
 
+//     game.physics.arcade.collide(character, ball);
+
+//     if (cursors.left.isDown) { character.body.velocity.x -= 8; }
+//     else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
+//     if (cursors.up.isDown) { character.body.velocity.y -= 8; }
+//     else if (cursors.down.isDown) { character.body.velocity.y += 8; }
 // }

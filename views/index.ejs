@@ -2,28 +2,40 @@
 <html>
   <head>
     <title>Pig-Pong</title>
-  <link rel="stylesheet" href="animate.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" href="http://www.justinaguilar.com/animations/css/animations.css">
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="/css/normalize.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
- <div class="background" style='margin:0 auto;width:40em;z-index:-100'>
-    <img src="images/Zombie_Pig.png" style='width:100%;height:100%'>
-  </div>
-  <div class="container" style="margin:0 auto;width:40em">
-<div class="jumbotron" style="background:rgba(225, 225, 225, 0.8);color:white;margin-top:20%">
-  <div class="input group">
 
-  <h2>Enter your name:</h2>
+<img src="/images/mud.png" id="mud" class="expandOpen"> 
+<img src="/images/mud.png" id="mud2" class="expandOpen"> 
+<div class="container" style="width:40em">
+  <div class="jumbotron" style="background:rgba(225, 225, 225, 0.8);color:white">
+    <div class="input group">
+    
+    <h2>Enter your name:</h2>
 
     <form action="/" method="post">
-	  <label for "name"> name: </label><input name="name" class="form-control" type="text">
+	  <label for "name"> </label><input name="name" class="form-control" type="text">
 	  <input type="hidden" id="login-btn submit" style="color:black" type="submit" value="Sign in" id="submit">
 	</form>
   </div>
 </div>
+<img src="/images/mud.png" id="mud3" class="expandOpen"> 
+<!-- <img src="/images/mud.png" id="mud4" class="expandOpen">  -->
+
+<script>
+  $(document).ready(function() {
+    setTimeout(function(){
+    	$('#mud2').delay(800).fadeIn(50);
+    	$('#mud3').delay(1600).fadeIn(50);
+    	// $('#mud4').delay(2000).fadeIn(50);
+    });
+  });  
+</script>
   <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
   <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
   <script src='socket.io/socket.io.js'></script>
