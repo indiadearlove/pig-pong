@@ -4,6 +4,8 @@ var game = new Phaser.Game(1400, 900, Phaser.AUTO, 'game-mainpage', { preload: p
 
 function preload() {
 
+
+
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
 

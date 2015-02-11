@@ -1,0 +1,38 @@
+html {
+	height: 100%;
+}
+
+body {
+	background-image: url(/images/grass.jpg);
+	min-height: 100%;
+	text-align: center;
+}
+
+#jumbotron {
+  position: absolute;
+}
+
+#mud{
+	margin-right: 50em;
+	visibility: hidden;
+
+}
+
+#mud2 {
+   position: absolute;
+   visibility: hidden;
+   display: none;
+   
+   z-index: -1;
+}
+
+#mud3 {
+   
+   visibility: hidden;
+   display: none;
+}
+
+/*#mud4 {
+  visibility: hidden;
+  display: none;
+}*/
