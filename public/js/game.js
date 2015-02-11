@@ -1,10 +1,8 @@
-var game = new Phaser.Game(1400, 900, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1400, 900, Phaser.CANVAS, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
 
 // Initializing game =======================================================================
 
 function preload() {
-
-
 
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
@@ -14,6 +12,7 @@ function preload() {
 var character;
 var ball;
 var cursors;
+var timer;
 
 function create() {
 
@@ -23,6 +22,9 @@ function create() {
   createBall();
 
   cursors = game.input.keyboard.createCursorKeys();
+  game.time.events.repeat(Phaser.Timer.SECOND * 2, 1, createBall, this);
+  timer = game.time.create(false);
+  timer.start();
 
 }
 
@@ -37,11 +39,12 @@ function update() {
 
     ball.rotation += ball.body.velocity.x/10000;
 
+
 }
 
 function render() {
 
-    game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+    game.debug.text('Time: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
 }
 
@@ -74,5 +77,6 @@ function createBall() {
 function destroySprite() {
 
   character.kill();
+
 
 }
