@@ -1,7 +1,8 @@
 var game = new Phaser.Game(1400, 900, Phaser.CANVAS, 'flyer', { preload: preload, create: create, update: update });
 
 function preload() {
-  game.load.image('flyer', 'images/zombiepig.jpg');
+
+  game.load.image('flyer', 'image/zombiepig.jpg');
 };
 
 var image;
