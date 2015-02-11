@@ -2,7 +2,7 @@ var player = new Phaser.Game(1400, 900, Phaser.AUTO, 'farmer', { preload: preloa
 
 function preload() {
 
-    player.load.image('farmer', 'images/farmer.jpg');
+    player.load.image('farmer', 'image/farmer.jpg');
     // player.load.atlasJSONHash('bot', 'assets/sprites/running_bot.png', 'assets/sprites/running_bot.json');
 
 }
