@@ -19,10 +19,11 @@ app.post('/', function(req, res) {
 
 app.get('/game', function(request, response){
   response.render('game');
+  console.log(request.body.username);
 });
 
 server.listen(port, function(){
-  console.log('Server running at' + port);
+  console.log('Server running at ' + port);
 });
 
 
