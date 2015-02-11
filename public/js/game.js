@@ -23,12 +23,9 @@ function create() {
   character.body.collideWorldBounds = true;
   character.body.bounce.set(0.3);
 
-
 // BALL
   newball(0, 0);
   newball(30, 400);
-
-
 
   cursors = game.input.keyboard.createCursorKeys();
 }
@@ -42,6 +39,9 @@ function newball(x, y) {
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.1);
   ball.body.velocity.setTo(400,400);
+
+
+
 
 }
 
