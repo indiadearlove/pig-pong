@@ -17,6 +17,10 @@ function create() {
   game.physics.startSystem(Phaser.Physics.ARCADE);
   
   createPlayer();
+  
+  
+
+
   createBall();
 
   cursors = game.input.keyboard.createCursorKeys();
@@ -62,20 +66,29 @@ function createPlayer() {
 
 function createBall() {
 
-  ball = game.add.sprite(0, 0, 'flyer');
-  ball.scale.setTo(0.02, 0.02);
-  ball.anchor.setTo(0.5, 0.5);
-  game.physics.enable(ball, Phaser.Physics.ARCADE);
-  ball.body.collideWorldBounds = true;
-  ball.body.bounce.set(1.1);
-  ball.body.velocity.setTo(400,400);
+  balls = game.add.group();
+  balls.enableBody = true;
+  balls.physicsBodyType = Phaser.Physics.ARCADE;
+
+  for (var i = 0; i < 5; i++)
+  {
+    this.x = game.world.randomX + game.rnd.integerInRange(100,250);
+    this.y = game.world.randomX + game.rnd.integerInRange(100,250);
+    ball = game.add.sprite(this.x, this.y, 'flyer');
+    ball.scale.setTo(0.02, 0.02);
+    ball.anchor.setTo(0.5, 0.5);
+    game.physics.enable(ball, Phaser.Physics.ARCADE);
+    ball.body.collideWorldBounds = true;
+    ball.body.bounce.set(1.1);
+    ball.body.velocity.setTo(400,400);
+    ball.body.rotation += ball.body.velocity.x/10000;
+  }
 
   cursors = game.input.keyboard.createCursorKeys();
 }
 
 function destroySprite() {
-  timer.stop(false);
+  timer.pause(clearEvents);
   character.kill();
-
 
 }
