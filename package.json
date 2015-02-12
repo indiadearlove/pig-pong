@@ -36,6 +36,8 @@
   "dependencies": {
     "body-parser": "^1.11.0",
     "ejs": "^2.2.4",
+    "engine.io": "^1.5.1",
+    "eureca.io": "^0.6.2",
     "express": "^4.11.2",
     "phantomjs": "^1.9.15",
     "phaser": "^2.2.2"

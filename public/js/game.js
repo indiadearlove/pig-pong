@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: eurecaClientSetup, update: update, render: render });
 
 // Initializing game =======================================================================
 
