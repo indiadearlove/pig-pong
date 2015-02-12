@@ -1,65 +1,30 @@
 <!doctype html>
 <html>
-<<<<<<< HEAD
   <head>
     <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
   </head>
   <body>
-     <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-     <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
-     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
-     <script type="text/javascript" src="js/game.js"></script>
-     
     <h1><%- username %><h1>
     <div id="score"></div>
-
+    <div id="high-scores">
+      <div id="high-scores-table">
+        <h3> <u>High Scores</u> </h3>
+        <li> <%- username %> : <span id='score'></span> secs </li>  
+      </div>
+    </div>
     <div id="game-mainpage"></div>
     <script>
-
-     function deathLol(playerScore) {
-        var score = playerScore
-        console.log(playerScore)
-    	  
-    	  if (dead = true && score != undefined) {
-    	  	// alert(score);
-            $('#score').text(score);
-          }
-    } 
+       function deathLol(playerScore) {
+          var score = playerScore
+          console.log(playerScore)
+        
+          if (dead = true && score != undefined) {
+              $('#score').text(score);
+            }
+      }
     </script>
+    <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+    <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
   </body>
-=======
-<head>
-  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-</head>
-<body>
-
-  <div id="high-scores">
-    <div id="high-scores-table">
-
-      <h3> <u>High Scores</u> </h3>
-
-      <li> <%- username %> : <span id='score'></span> secs </li>  
-
-    </div>
-  </div>
-  
-  <div id="game-mainpage"></div>
-  
-  <script>
-   function deathLol(playerScore) {
-      var score = playerScore
-      console.log(playerScore)
-    
-      if (dead = true && score != undefined) {
-          $('#score').text(score);
-        }
-  } 
-  </script>
-
-<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
-<script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
-<script type="text/javascript" src="js/game.js"></script>
- 
-</body>
->>>>>>> 7a737b6f4f3ba7e529fcdd5f45faf6bd54027479
 </html>

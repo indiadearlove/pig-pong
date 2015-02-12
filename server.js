@@ -26,5 +26,4 @@ server.listen(port, function(){
   console.log('Server running at ' + port);
 });
 
-
 module.exports = server;
