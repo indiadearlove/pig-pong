@@ -12,11 +12,10 @@ body {
     position: absolute;
 }
 
-#mud{
+#mud {
 	margin-right: 50em;
 	visibility: hidden;
 	z-index: -5;
-
 }
 
 #mud2 {
@@ -35,7 +34,17 @@ body {
   margin: 0 0 auto;
   display: inline-block;
 }
-/*#mud4 {
-  visibility: hidden;
-  display: none;
-}*/
+
+
+#logo {
+  width: auto;
+}
+
+#high-scores {
+  float: left;
+  display: inline;
+  height: 10em;
+  width: 22em;
+  margin-left: 1.3em;
+  background-color: red;
+}
