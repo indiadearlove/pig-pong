@@ -12,17 +12,24 @@ function preload() {
 var character;
 var ball;
 var cursors;
-var timer
+var timer;
+var playerScore;
+var dead = false;
 
 function create() {
 
   game.physics.startSystem(Phaser.Physics.ARCADE);
-  
-  createPlayer();
+
+  group = game.add.group();
+  group.enableBody = true;  
+  group.physicsBodyType = Phaser.Physics.ARCADE;
+  game.time.events.loop(5000, createBall, this);
+
+
   createBall();
+  createPlayer();
 
   cursors = game.input.keyboard.createCursorKeys();
-
   timer = game.time.create(true);
   timer.start()
 
@@ -30,15 +37,19 @@ function create() {
 
 function update() {
 
-    game.physics.arcade.collide(character, balls, destroySprite);
+    game.physics.arcade.collide(character, group, destroySprite);
+    game.physics.arcade.collide(group, group);
 
     if (cursors.left.isDown) { character.body.velocity.x -= 8; }
     else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
     if (cursors.up.isDown) { character.body.velocity.y -= 8; }
     else if (cursors.down.isDown) { character.body.velocity.y += 8; }
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 9f560ac98609b1a52cd21fc3bd334c845c8b8f49
 }
 
 function render() {
@@ -51,8 +62,8 @@ function render() {
 
 function createPlayer() {
 
-  character = game.add.sprite(game.world.centerX-30, game.world.centerY-30, 'farmer');
-  character.scale.setTo(0.25, 0.25);
+  character = game.add.sprite(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'farmer');
+  character.scale.setTo(0.15, 0.15);
   character.anchor.setTo(0.5, 0.5);
   game.physics.enable(character, Phaser.Physics.ARCADE);
   character.body.collideWorldBounds = true;
@@ -62,8 +73,9 @@ function createPlayer() {
 
 function createBall() {
 
-  balls = game.add.group();
+  ball = group.create(game.world.randomX, game.world.randomY, 'flyer', 1);
   
+<<<<<<< HEAD
   //change i for number of balls
 
   for (var i = 0; i < 3; i++)
@@ -75,9 +87,17 @@ function createBall() {
     ball.scale.setTo(0.02, 0.02);
     ball.anchor.setTo(0.5, 0.5);
     game.physics.enable(ball, Phaser.Physics.ARCADE);
+=======
+  game.physics.enable(ball, Phaser.Physics.ARCADE);
+>>>>>>> 9f560ac98609b1a52cd21fc3bd334c845c8b8f49
 
-  }
+  ball.scale.setTo(0.02, 0.02);
+  ball.body.collideWorldBounds = true;
+  ball.body.bounce.set(1.01);
+  ball.body.velocity.setTo(200,200);
+  ball.body.rotation += ball.body.velocity.x/1000;
 
+<<<<<<< HEAD
   balls.setAll('body.rotation', 1)
   balls.setAll('body.collideWorldBounds', true);
   balls.setAll('body.bounce.x', 1);
@@ -86,15 +106,21 @@ function createBall() {
   balls.setAll('body.velocity.y', 400)
 
   cursors = game.input.keyboard.createCursorKeys();
+=======
+>>>>>>> 9f560ac98609b1a52cd21fc3bd334c845c8b8f49
 }
 
 function destroySprite() {
 
   character.kill();
+
   var score = timer;
-  console.log(score);
-  console.log(score._now);
-  console.log(score._started);
-  console.log((score._now - score._started)/1000);
+  playerScore = ((score._now - score._started)/1000);
+  getScore(playerScore);
 
 }
+
+ function getScore(playerScore) {
+   console.log(playerScore)
+   deathLol(playerScore)
+  }

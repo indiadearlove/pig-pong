@@ -1,16 +1,29 @@
 <!doctype html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
   </head>
   <body>
      <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
      <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
      <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
-        <script type="text/javascript" src="js/game.js"></script>
+     <script type="text/javascript" src="js/game.js"></script>
      
     <h1><%- username %><h1>
+    <div id="score"></div>
 
-       <div id="game-mainpage"></div>
+    <div id="game-mainpage"></div>
+    <script>
 
+     function deathLol(playerScore) {
+        var score = playerScore
+        console.log(playerScore)
+    	  
+    	  if (dead = true && score != undefined) {
+    	  	// alert(score);
+            $('#score').text(score);
+          }
+    } 
+    </script>
   </body>
 </html>

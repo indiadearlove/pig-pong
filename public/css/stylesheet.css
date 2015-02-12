@@ -39,3 +39,20 @@ body {
   visibility: hidden;
   display: none;
 }*/
+
+
+/*===== GAME PAGE =======*/
+
+#logo {
+  width: auto;
+}
+
+#high-scores {
+  float: left;
+  display: inline;
+  height: 10em;
+  width: 22em;
+  margin-left: 1.3em;
+  margin-right: -19em;
+  background-color: red;
+}
