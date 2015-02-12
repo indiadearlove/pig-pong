@@ -7,6 +7,7 @@ function preload() {
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
   game.load.spritesheet('explosion', 'image/explosion.png', 64, 64, 23);
+  game.load.audio('ex_sound', 'audio/explosion.mp3');
 
 }
 
@@ -16,7 +17,7 @@ var cursors;
 var timer;
 var playerScore;
 var dead = false;
-var explosion;
+var ex_sound;
 
 function create() {
 
@@ -79,6 +80,13 @@ function createPlayer() {
 
 }
 
+function audio() {
+
+  ex_sound = game.add.audio('ex_sound');
+  ex_sound.play();
+
+}
+
 function createBall() {
 
   ball = group.create(game.world.randomX, game.world.randomY, 'flyer', 1);
@@ -103,6 +111,7 @@ function destroySprite() {
   var explosionAnimation = explosion.getFirstExists(false);
   explosionAnimation.reset(character.x, character.y);
   explosionAnimation.play('explosion', 30, false, true);
+  audio();
 
 }
 
