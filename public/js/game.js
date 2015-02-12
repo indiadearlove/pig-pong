@@ -13,9 +13,8 @@ var character;
 var ball;
 var cursors;
 var timer;
-var score;
-var tod;
-var group;
+var playerScore;
+var dead = false;
 
 function create() {
 
@@ -59,7 +58,7 @@ function render() {
 function createPlayer() {
 
   character = game.add.sprite(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'farmer');
-  character.scale.setTo(0.25, 0.25);
+  character.scale.setTo(0.15, 0.15);
   character.anchor.setTo(0.5, 0.5);
   game.physics.enable(character, Phaser.Physics.ARCADE);
   character.body.collideWorldBounds = true;
@@ -84,7 +83,14 @@ function createBall() {
 function destroySprite() {
 
   character.kill();
-  score = timer;
-  console.log((score._now - score._started)/1000);
-  tod = ((score._now - score._started)/1000);
+
+  var score = timer;
+  playerScore = ((score._now - score._started)/1000);
+  getScore(playerScore);
+
 }
+
+ function getScore(playerScore) {
+   console.log(playerScore)
+   deathLol(playerScore)
+  }

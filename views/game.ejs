@@ -4,33 +4,26 @@
     <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
   </head>
   <body>
-    
-    <img src="/image/logo.png" id="logo">
+     <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+     <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
+     <script type="text/javascript" src="js/game.js"></script>
+     
+    <h1><%- username %><h1>
+    <div id="score"></div>
 
     <div id="game-mainpage"></div>
+    <script>
 
-    <div id="high-scores">
-      <div id="high-scores-table">
-
-        <h3> <u>High Scores</u> </h3>
-
-        <li> <%- username %> </li>
-        <section id='highscore'>??</section>
-      </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
-    <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
-    <script type='text/javascript'>
-      $(document).ready(function() {
-      $('#highscore').on('click', function() {
-      destroySprite(tod);
-      console.log(tod);
-      });
-
-    });
+     function deathLol(playerScore) {
+        var score = playerScore
+        console.log(playerScore)
+    	  
+    	  if (dead = true && score != undefined) {
+    	  	// alert(score);
+            $('#score').text(score);
+          }
+    } 
     </script>
-    <script type="text/javascript" src="js/game.js"></script>
-   
   </body>
 </html>
