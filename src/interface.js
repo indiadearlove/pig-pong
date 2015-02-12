@@ -1,5 +1,3 @@
-
-
 function deathLol(playerScore) {
 var score = playerScore
 console.log(playerScore)

@@ -38,21 +38,21 @@ function create() {
 
 function update() {
 
-    game.physics.arcade.collide(character, group, destroySprite);
-    game.physics.arcade.collide(group, group);
-    // ball.rotation += ball.body.velocity.x/1000;
+  game.physics.arcade.collide(character, group, destroySprite);
+  game.physics.arcade.collide(group, group);
+  // ball.rotation += ball.body.velocity.x/1000;
 
 
-    if (cursors.left.isDown) { character.body.velocity.x -= 8; }
-    else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
-    if (cursors.up.isDown) { character.body.velocity.y -= 8; }
-    else if (cursors.down.isDown) { character.body.velocity.y += 8; }
+  if (cursors.left.isDown) { character.body.velocity.x -= 8; }
+  else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
+  if (cursors.up.isDown) { character.body.velocity.y -= 8; }
+  else if (cursors.down.isDown) { character.body.velocity.y += 8; }
 
 }
 
 function render() {
 
-    game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+  game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
 }
 
@@ -78,7 +78,7 @@ function createBall() {
   ball.scale.setTo(0.01, 0.01);
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.01);
-  ball.body.velocity.setTo(400,400);
+  ball.body.velocity.setTo(200,200);
 
 }
 
@@ -91,9 +91,9 @@ function destroySprite() {
 
 }
 
- function getScore(playerScore) {
-   console.log(playerScore)
-   deathLol(playerScore)
-  }
+function getScore(playerScore) {
 
+  console.log(playerScore)
+  deathLol(playerScore)
 
+}

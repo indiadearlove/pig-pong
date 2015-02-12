@@ -1,41 +1,37 @@
 
-
 <!doctype html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-  </head>
-  <body>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+      <div class="jumbotron" style="background:rgba(225, 225, 225, 0.8);color:red;width:20%;">
+        <div id="high-scores-table">
 
-    <div id="high-scores">
-      <div id="high-scores-table">
+          <h3> <u>High Scores</u> </h3>
 
-        <h3> <u>High Scores</u> </h3>
+          <li> <%- username %> : <span id='score'></span> secs </li>  
 
-        <li> <%- username %> : <span id='score'></span> secs </li>
-        
-
+        </div>
       </div>
     </div>
-    <div id="game-mainpage"></div>
-    <script>
+  <div id="game-mainpage"></div>
 
-     function deathLol(playerScore) {
-        var score = playerScore
-        console.log(playerScore)
-        
-       
-        if (dead = true && score != undefined) {
-            $('#score').text(score);
+  <script>
+   function deathLol(playerScore) {
+      var score = playerScore
+      console.log(playerScore)
+    
+      if (dead = true && score != undefined) {
+          $('#score').text(score);
+        }
+  } 
+  </script>
 
-          }
-
-    } 
-    </script>
-
-  <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
-  <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
-  <script type="text/javascript" src="js/game.js"></script>
-   
-  </body>
+<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+<script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
+<script type="text/javascript" src="js/game.js"></script>
+ 
+</body>
 </html>

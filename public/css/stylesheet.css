@@ -8,13 +8,16 @@ body {
 	text-align: center;
 }
 
-#jumbotron {
+#jumbotron #form-box {
     position: absolute;
 }
 
+#logo {
+  width: auto;
+}
+
 #mud {
-	margin-right: 50em;
-	visibility: hidden;
+  position: absolute;
 	z-index: -5;
 }
 
@@ -24,27 +27,25 @@ body {
    z-index: -5;
 }
 
-/*#mud3 {
-   
-   display: none;
-   z-index: -5;
-}*/
-
 #game-mainpage {
   margin: 0 0 auto;
   display: inline-block;
 }
 
 
-#logo {
-  width: auto;
-}
+/*===== GAME PAGE =======*/
 
 #high-scores {
   float: left;
   display: inline;
-  height: 10em;
+/*  height: 10em;
   width: 22em;
-  margin-left: 1.3em;
+  margin-left: 1.3em;*/
   background-image: url(/image/box.png) 0 0 no-repeat;
 }
+
+div #form-box {
+  background-image: url(/image/box2.png) 0 0 no-repeat;
+    
+}
+
