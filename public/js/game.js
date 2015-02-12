@@ -9,6 +9,7 @@ function preload() {
 
 }
 
+var group;
 var character;
 var ball;
 var cursors;
@@ -32,7 +33,7 @@ function create() {
 
   cursors = game.input.keyboard.createCursorKeys();
   timer = game.time.create(true);
-  timer.start()
+  timer.start();
 
 }
 
@@ -92,6 +93,6 @@ function destroySprite() {
 }
 
  function getScore(playerScore) {
-   console.log(playerScore)
-   deathLol(playerScore)
+   console.log(playerScore);
+   deathLol(playerScore);
   }
