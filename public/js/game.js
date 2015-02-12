@@ -6,6 +6,8 @@ function preload() {
 
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
+  game.load.spritesheet('explosion', 'image/explosion.png', 64, 64, 23);
+  game.load.audio('ex_sound', 'audio/explosion.mp3');
 
 }
 
@@ -15,6 +17,7 @@ var cursors;
 var timer;
 var playerScore;
 var dead = false;
+var ex_sound;
 
 function create() {
 
@@ -32,6 +35,17 @@ function create() {
   cursors = game.input.keyboard.createCursorKeys();
   timer = game.time.create(true);
   timer.start()
+
+  //Explosion
+
+  explosion = game.add.group();
+
+  for (var i = 0; i < 10; i++)
+  {
+      var explosionAnimation = explosion.create(0, 0, 'explosion', [0], false);
+      explosionAnimation.anchor.setTo(0.5, 0.5);
+      explosionAnimation.animations.add('explosion');
+  }
 
 }
 
@@ -66,6 +80,13 @@ function createPlayer() {
 
 }
 
+function audio() {
+
+  ex_sound = game.add.audio('ex_sound');
+  ex_sound.play();
+
+}
+
 function createBall() {
 
   ball = group.create(game.world.randomX, game.world.randomY, 'flyer', 1);
@@ -88,10 +109,15 @@ function destroySprite() {
   playerScore = ((score._now - score._started)/1000);
   getScore(playerScore);
   console.log(score);
+  var explosionAnimation = explosion.getFirstExists(false);
+  explosionAnimation.reset(character.x, character.y);
+  explosionAnimation.play('explosion', 30, false, true);
+  audio();
 
 }
 
  function getScore(playerScore) {
-   console.log(playerScore)
-   deathLol(playerScore)
+  console.log(playerScore)
+  deathLol(playerScore)
+  
   }
