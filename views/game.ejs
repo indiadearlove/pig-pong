@@ -8,9 +8,10 @@
   <div id="high-scores">
     <div id="high-scores-table">
 
-      <h3> <u>High Scores</u> </h3>
+      <h3> <u><%- username %></u> </h3>
 
-      <li> <%- username %> : <span id='score'></span> secs </li>  
+      <li> HighScore : <span id='highscore'></span> secs </li> 
+      <li> Score : <span id='score'></span> secs </li> 
 
     </div>
 
@@ -26,6 +27,11 @@
       if (dead = true && score != undefined) {
           $('#score').text(score);
         }
+
+      if (highscore < score) {
+          highscore = score;
+          $('#highscore').text(score);
+        }    
   } 
   </script>
 

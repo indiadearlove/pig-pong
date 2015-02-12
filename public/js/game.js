@@ -18,6 +18,7 @@ var timer;
 var playerScore;
 var dead = false;
 var ex_sound;
+var highscore = 0;
 
 function create() {
 
@@ -103,15 +104,26 @@ function createBall() {
 
 function destroySprite() {
 
-  character.kill();
-  var score = timer;
-  playerScore = ((score._now - score._started)/1000);
-  getScore(playerScore);
-  console.log(score);
+  character.kill();  
+  
+  //explosion
+
   var explosionAnimation = explosion.getFirstExists(false);
   explosionAnimation.reset(character.x, character.y);
   explosionAnimation.play('explosion', 30, false, true);
   audio();
+
+  //highscore
+
+  var score = timer;
+  playerScore = ((score._now - score._started)/1000);
+    // if {playerScore > highScore) {
+    //   highScore = playerScore
+      getScore(playerScore);
+       console.log(score);
+    // }
+
+
 
 }
 
@@ -119,5 +131,6 @@ function getScore(playerScore) {
 
   console.log(playerScore)
   deathLol(playerScore)
+  create();
 
 }
