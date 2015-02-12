@@ -12,11 +12,14 @@ body {
     position: absolute;
 }
 
-#mud{
+#logo {
+  width: auto;
+}
+
+#mud {
 	margin-right: 50em;
 	visibility: hidden;
 	z-index: -5;
-
 }
 
 #mud2 {
@@ -35,6 +38,7 @@ body {
   margin: 0 0 auto;
   display: inline-block;
 }
+
 /*#mud4 {
   visibility: hidden;
   display: none;
@@ -42,10 +46,6 @@ body {
 
 
 /*===== GAME PAGE =======*/
-
-#logo {
-  width: auto;
-}
 
 #high-scores {
   float: left;

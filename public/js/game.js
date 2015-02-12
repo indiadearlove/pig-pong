@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1400, 900, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
 
 // Initializing game =======================================================================
 
@@ -61,7 +61,11 @@ function render() {
 function createPlayer() {
 
   character = game.add.sprite(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'farmer');
+<<<<<<< HEAD
   character.scale.setTo(0.25, 0.25);
+=======
+  character.scale.setTo(0.08, 0.08);
+>>>>>>> fba63f0013ade7564f121e9b30770bdc90c50299
   character.anchor.setTo(0.5, 0.5);
   game.physics.enable(character, Phaser.Physics.ARCADE);
   character.body.collideWorldBounds = true;
@@ -74,18 +78,42 @@ function createBall() {
   ball = group.create(game.world.randomX, game.world.randomY, 'flyer', 1);
   
   game.physics.enable(ball, Phaser.Physics.ARCADE);
+<<<<<<< HEAD
 
   ball.scale.setTo(0.02, 0.02);
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.01);
   ball.body.velocity.setTo(200,200);
 
+=======
+
+  ball.scale.setTo(0.01, 0.01);
+  ball.body.collideWorldBounds = true;
+  ball.body.bounce.set(1.01);
+  ball.body.velocity.setTo(400,400);
+
+>>>>>>> fba63f0013ade7564f121e9b30770bdc90c50299
 }
 
 function destroySprite() {
 
   character.kill();
+<<<<<<< HEAD
   score = timer;
   console.log((score._now - score._started)/1000);
   tod = ((score._now - score._started)/1000);
 }
+=======
+  var score = timer;
+  playerScore = ((score._now - score._started)/1000);
+  getScore(playerScore);
+
+}
+
+ function getScore(playerScore) {
+   console.log(playerScore)
+   deathLol(playerScore)
+  }
+
+
+>>>>>>> fba63f0013ade7564f121e9b30770bdc90c50299
