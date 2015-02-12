@@ -87,6 +87,7 @@ function destroySprite() {
   var score = timer;
   playerScore = ((score._now - score._started)/1000);
   getScore(playerScore);
+  console.log(score);
 
 }
 
