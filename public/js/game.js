@@ -4,8 +4,6 @@ var game = new Phaser.Game(1400, 900, Phaser.AUTO, 'game-mainpage', { preload: p
 
 function preload() {
 
-
-
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
 
@@ -42,8 +40,6 @@ function update() {
 
     game.physics.arcade.collide(character, group, destroySprite);
     game.physics.arcade.collide(group, group);
-    // ball.rotation += ball.body.velocity.x/1000;
-
 
     if (cursors.left.isDown) { character.body.velocity.x -= 8; }
     else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
@@ -80,7 +76,8 @@ function createBall() {
   ball.scale.setTo(0.02, 0.02);
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.01);
-  ball.body.velocity.setTo(400,400);
+  ball.body.velocity.setTo(200,200);
+  ball.body.rotation += ball.body.velocity.x/1000;
 
 }
 
