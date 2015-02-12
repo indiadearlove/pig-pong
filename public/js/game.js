@@ -35,6 +35,8 @@ function create() {
   timer = game.time.create(true);
   timer.start()
 
+  //Explosion
+
   explosion = game.add.group();
 
   for (var i = 0; i < 10; i++)
@@ -101,7 +103,6 @@ function destroySprite() {
   var explosionAnimation = explosion.getFirstExists(false);
   explosionAnimation.reset(character.x, character.y);
   explosionAnimation.play('explosion', 30, false, true);
-  // game.add.sprite(character.body.x, character.body.y, 'explosion');
 
 }
 
