@@ -104,8 +104,11 @@ function createBall() {
 
 function destroySprite() {
 
+  // game.world.removeAll();
+
   character.kill();  
-  
+  ball.destroy();
+
   //explosion
 
   var explosionAnimation = explosion.getFirstExists(false);
@@ -117,13 +120,8 @@ function destroySprite() {
 
   var score = timer;
   playerScore = ((score._now - score._started)/1000);
-    // if {playerScore > highScore) {
-    //   highScore = playerScore
-      getScore(playerScore);
-       console.log(score);
-    // }
-
-
+  getScore(playerScore);
+  console.log(score);
 
 }
 
@@ -131,6 +129,8 @@ function getScore(playerScore) {
 
   console.log(playerScore)
   deathLol(playerScore)
+  group.destroy()
+  game.time.reset();
   create();
 
 }
