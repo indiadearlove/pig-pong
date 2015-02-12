@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1400, 900, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
 
 // Initializing game =======================================================================
 
@@ -13,6 +13,7 @@ var character;
 var ball;
 var cursors;
 var timer;
+
 var playerScore;
 var dead = false;
 
@@ -37,19 +38,19 @@ function create() {
 
 function update() {
 
-    game.physics.arcade.collide(character, group, destroySprite);
-    game.physics.arcade.collide(group, group);
+  game.physics.arcade.collide(character, group, destroySprite);
+  game.physics.arcade.collide(group, group);
 
-    if (cursors.left.isDown) { character.body.velocity.x -= 8; }
-    else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
-    if (cursors.up.isDown) { character.body.velocity.y -= 8; }
-    else if (cursors.down.isDown) { character.body.velocity.y += 8; }
+  if (cursors.left.isDown) { character.body.velocity.x -= 8; }
+  else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
+  if (cursors.up.isDown) { character.body.velocity.y -= 8; }
+  else if (cursors.down.isDown) { character.body.velocity.y += 8; }
 
 }
 
 function render() {
 
-    game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+  game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
 }
 
@@ -58,7 +59,8 @@ function render() {
 function createPlayer() {
 
   character = game.add.sprite(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'farmer');
-  character.scale.setTo(0.15, 0.15);
+
+  character.scale.setTo(0.08, 0.08);
   character.anchor.setTo(0.5, 0.5);
   game.physics.enable(character, Phaser.Physics.ARCADE);
   character.body.collideWorldBounds = true;
@@ -72,11 +74,10 @@ function createBall() {
   
   game.physics.enable(ball, Phaser.Physics.ARCADE);
 
-  ball.scale.setTo(0.02, 0.02);
+  ball.scale.setTo(0.01, 0.01);
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.01);
   ball.body.velocity.setTo(200,200);
-  ball.body.rotation += ball.body.velocity.x/1000;
 
 }
 
