@@ -78,7 +78,7 @@ function createBall() {
   ball.scale.setTo(0.02, 0.02);
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.01);
-  ball.body.velocity.setTo(400,400);
+  ball.body.velocity.setTo(200,200);
 
 }
 
