@@ -6,6 +6,7 @@ function preload() {
 
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
+  game.load.image('explosion', 'image/blood.png');
 
 }
 
@@ -15,6 +16,7 @@ var cursors;
 var timer;
 var playerScore;
 var dead = false;
+var explosion;
 
 function create() {
 
@@ -87,10 +89,12 @@ function destroySprite() {
   var score = timer;
   playerScore = ((score._now - score._started)/1000);
   getScore(playerScore);
+  game.add.sprite(character.body.x, character.body.y, 'explosion');
 
 }
 
  function getScore(playerScore) {
-   console.log(playerScore)
-   deathLol(playerScore)
+  console.log(playerScore)
+  deathLol(playerScore)
+  
   }
