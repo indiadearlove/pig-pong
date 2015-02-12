@@ -56,3 +56,26 @@ body {
   margin-right: -19em;
   background-color: red;
 }
+
+.btn {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  text-shadow: 2px 3px 4px #999099;
+  -webkit-box-shadow: 0px 4px 3px #780909;
+  -moz-box-shadow: 0px 4px 3px #780909;
+  box-shadow: 0px 4px 3px #780909;
+  font-family: Arial;
+  color: #c73030;
+  font-size: 20px;
+  background: #a3a6a8;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  -webkit-box-shadow: 0px 4px #780909;
+     -moz-box-shadow: 0px 4px #780909;
+          box-shadow: 0px 4px #780909;
+                 top: 2px;
+}
