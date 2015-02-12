@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: eurecaClientSetup, update: update, render: render });
 
 // Initializing game =======================================================================
 
@@ -19,6 +19,27 @@ var playerScore;
 var dead = false;
 var ex_sound;
 
+//============== Socket Stuff Goes Here =================
+
+var ready = false;
+var eurecaServer;
+//this function will handle client communication with the server
+var eurecaClientSetup = function() {
+  //create an instance of eureca.io client
+  var eurecaClient = new Eureca.Client();
+  
+  eurecaClient.ready(function (proxy) {   
+    eurecaServer = proxy;
+    
+    
+    //we temporary put create function here so we make sure to launch the game once the client is ready
+    create();
+    ready = true;
+  }); 
+}
+
+//=======================================================
+
 function create() {
 
   game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -27,7 +48,6 @@ function create() {
   group.enableBody = true;  
   group.physicsBodyType = Phaser.Physics.ARCADE;
   game.time.events.loop(5000, createBall, this);
-
 
   createBall();
   createPlayer();
@@ -50,6 +70,9 @@ function create() {
 }
 
 function update() {
+
+  //do not update if client not ready
+  if (!ready) return;
 
   game.physics.arcade.collide(character, group, destroySprite);
   game.physics.arcade.collide(group, group);
