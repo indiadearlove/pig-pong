@@ -38,21 +38,21 @@ function create() {
 
 function update() {
 
-    game.physics.arcade.collide(character, group, destroySprite);
-    game.physics.arcade.collide(group, group);
-    // ball.rotation += ball.body.velocity.x/1000;
+  game.physics.arcade.collide(character, group, destroySprite);
+  game.physics.arcade.collide(group, group);
+  // ball.rotation += ball.body.velocity.x/1000;
 
 
-    if (cursors.left.isDown) { character.body.velocity.x -= 8; }
-    else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
-    if (cursors.up.isDown) { character.body.velocity.y -= 8; }
-    else if (cursors.down.isDown) { character.body.velocity.y += 8; }
+  if (cursors.left.isDown) { character.body.velocity.x -= 8; }
+  else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
+  if (cursors.up.isDown) { character.body.velocity.y -= 8; }
+  else if (cursors.down.isDown) { character.body.velocity.y += 8; }
 
 }
 
 function render() {
 
-    game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+  game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
 }
 
@@ -61,11 +61,7 @@ function render() {
 function createPlayer() {
 
   character = game.add.sprite(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'farmer');
-<<<<<<< HEAD
-  character.scale.setTo(0.25, 0.25);
-=======
   character.scale.setTo(0.08, 0.08);
->>>>>>> fba63f0013ade7564f121e9b30770bdc90c50299
   character.anchor.setTo(0.5, 0.5);
   game.physics.enable(character, Phaser.Physics.ARCADE);
   character.body.collideWorldBounds = true;
@@ -78,42 +74,26 @@ function createBall() {
   ball = group.create(game.world.randomX, game.world.randomY, 'flyer', 1);
   
   game.physics.enable(ball, Phaser.Physics.ARCADE);
-<<<<<<< HEAD
-
-  ball.scale.setTo(0.02, 0.02);
-  ball.body.collideWorldBounds = true;
-  ball.body.bounce.set(1.01);
-  ball.body.velocity.setTo(200,200);
-
-=======
 
   ball.scale.setTo(0.01, 0.01);
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.01);
-  ball.body.velocity.setTo(400,400);
+  ball.body.velocity.setTo(200,200);
 
->>>>>>> fba63f0013ade7564f121e9b30770bdc90c50299
 }
 
 function destroySprite() {
 
   character.kill();
-<<<<<<< HEAD
-  score = timer;
-  console.log((score._now - score._started)/1000);
-  tod = ((score._now - score._started)/1000);
-}
-=======
   var score = timer;
   playerScore = ((score._now - score._started)/1000);
   getScore(playerScore);
 
 }
 
- function getScore(playerScore) {
-   console.log(playerScore)
-   deathLol(playerScore)
-  }
+function getScore(playerScore) {
 
+  console.log(playerScore)
+  deathLol(playerScore)
 
->>>>>>> fba63f0013ade7564f121e9b30770bdc90c50299
+}
