@@ -6,7 +6,7 @@ function preload() {
 
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
-  game.load.image('explosion', 'image/blood.png');
+  game.load.spritesheet('explosion', 'image/explosion.png', 64, 64, 23);
 
 }
 
@@ -34,6 +34,15 @@ function create() {
   cursors = game.input.keyboard.createCursorKeys();
   timer = game.time.create(true);
   timer.start()
+
+  explosion = game.add.group();
+
+  for (var i = 0; i < 10; i++)
+  {
+      var explosionAnimation = explosion.create(0, 0, 'explosion', [0], false);
+      explosionAnimation.anchor.setTo(0.5, 0.5);
+      explosionAnimation.animations.add('explosion');
+  }
 
 }
 
@@ -89,7 +98,10 @@ function destroySprite() {
   var score = timer;
   playerScore = ((score._now - score._started)/1000);
   getScore(playerScore);
-  game.add.sprite(character.body.x, character.body.y, 'explosion');
+  var explosionAnimation = explosion.getFirstExists(false);
+  explosionAnimation.reset(character.x, character.y);
+  explosionAnimation.play('explosion', 30, false, true);
+  // game.add.sprite(character.body.x, character.body.y, 'explosion');
 
 }
 
