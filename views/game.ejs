@@ -1,23 +1,23 @@
-
 <!doctype html>
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
-      <div class="jumbotron" style="background:rgba(225, 225, 225, 0.8);color:red;width:20%;">
-        <div id="high-scores-table">
 
-          <h3> <u>High Scores</u> </h3>
+  <div id="high-scores">
+    <div id="high-scores-table">
 
-          <li> <%- username %> : <span id='score'></span> secs </li>  
+      <h3> <u>High Scores</u> </h3>
 
-        </div>
-      </div>
+      <li> <%- username %> : <span id='score'></span> secs </li>  
+
     </div>
-  <div id="game-mainpage"></div>
 
+  </div>
+  
+  <div id="game-mainpage"></div>
+  
   <script>
    function deathLol(playerScore) {
       var score = playerScore

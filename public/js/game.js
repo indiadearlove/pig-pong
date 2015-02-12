@@ -1,6 +1,6 @@
 var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
 
-// Initializing game
+// Initializing game =======================================================================
 
 function preload() {
 
@@ -53,6 +53,7 @@ function update() {
 
   game.physics.arcade.collide(character, group, destroySprite);
   game.physics.arcade.collide(group, group);
+  // ball.rotation += ball.body.velocity.x/1000;
 
   if (cursors.left.isDown) { character.body.velocity.x -= 8; }
   else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
@@ -67,7 +68,7 @@ function render() {
 
 }
 
-// Game methods
+// Game methods ============================================================================
 
 function createPlayer() {
 
@@ -97,15 +98,12 @@ function createBall() {
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.01);
   ball.body.velocity.setTo(200,200);
-  ball.body.rotation += ball.body.velocity.x/1000;
-
 
 }
 
 function destroySprite() {
 
   character.kill();
-
   var score = timer;
   playerScore = ((score._now - score._started)/1000);
   getScore(playerScore);
@@ -116,12 +114,6 @@ function destroySprite() {
   audio();
 
 }
-
- function getScore(playerScore) {
-  console.log(playerScore)
-  deathLol(playerScore)
-  
-  }
 
 function getScore(playerScore) {
 
