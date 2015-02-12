@@ -1,6 +1,6 @@
 var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
 
-// Initializing game =======================================================================
+// Initializing game
 
 function preload() {
 
@@ -51,23 +51,23 @@ function create() {
 
 function update() {
 
-    game.physics.arcade.collide(character, group, destroySprite);
-    game.physics.arcade.collide(group, group);
+  game.physics.arcade.collide(character, group, destroySprite);
+  game.physics.arcade.collide(group, group);
 
-    if (cursors.left.isDown) { character.body.velocity.x -= 8; }
-    else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
-    if (cursors.up.isDown) { character.body.velocity.y -= 8; }
-    else if (cursors.down.isDown) { character.body.velocity.y += 8; }
+  if (cursors.left.isDown) { character.body.velocity.x -= 8; }
+  else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
+  if (cursors.up.isDown) { character.body.velocity.y -= 8; }
+  else if (cursors.down.isDown) { character.body.velocity.y += 8; }
 
 }
 
 function render() {
 
-    game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+  game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
 }
 
-// Game methods ============================================================================
+// Game methods
 
 function createPlayer() {
 
@@ -99,6 +99,7 @@ function createBall() {
   ball.body.velocity.setTo(200,200);
   ball.body.rotation += ball.body.velocity.x/1000;
 
+
 }
 
 function destroySprite() {
@@ -121,3 +122,10 @@ function destroySprite() {
   deathLol(playerScore)
   
   }
+
+function getScore(playerScore) {
+
+  console.log(playerScore)
+  deathLol(playerScore)
+
+}
