@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: eurecaClientSetup, update: update, render: render });
+var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
 
 // Initializing game =======================================================================
 
@@ -6,6 +6,8 @@ function preload() {
 
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
+  game.load.spritesheet('explosion', 'image/explosion.png', 64, 64, 23);
+  game.load.audio('ex_sound', 'audio/explosion.mp3');
 
 }
 
@@ -13,9 +15,9 @@ var character;
 var ball;
 var cursors;
 var timer;
-var score;
-var tod;
-var group;
+var playerScore;
+var dead = false;
+var ex_sound;
 
 function create() {
 
@@ -34,25 +36,34 @@ function create() {
   timer = game.time.create(true);
   timer.start()
 
+  //Explosion
+
+  explosion = game.add.group();
+
+  for (var i = 0; i < 10; i++)
+  {
+      var explosionAnimation = explosion.create(0, 0, 'explosion', [0], false);
+      explosionAnimation.anchor.setTo(0.5, 0.5);
+      explosionAnimation.animations.add('explosion');
+  }
+
 }
 
 function update() {
 
-  game.physics.arcade.collide(character, group, destroySprite);
-  game.physics.arcade.collide(group, group);
-  // ball.rotation += ball.body.velocity.x/1000;
+    game.physics.arcade.collide(character, group, destroySprite);
+    game.physics.arcade.collide(group, group);
 
-
-  if (cursors.left.isDown) { character.body.velocity.x -= 8; }
-  else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
-  if (cursors.up.isDown) { character.body.velocity.y -= 8; }
-  else if (cursors.down.isDown) { character.body.velocity.y += 8; }
+    if (cursors.left.isDown) { character.body.velocity.x -= 8; }
+    else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
+    if (cursors.up.isDown) { character.body.velocity.y -= 8; }
+    else if (cursors.down.isDown) { character.body.velocity.y += 8; }
 
 }
 
 function render() {
 
-  game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+    game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
 
 }
 
@@ -69,6 +80,13 @@ function createPlayer() {
 
 }
 
+function audio() {
+
+  ex_sound = game.add.audio('ex_sound');
+  ex_sound.play();
+
+}
+
 function createBall() {
 
   ball = group.create(game.world.randomX, game.world.randomY, 'flyer', 1);
@@ -79,21 +97,27 @@ function createBall() {
   ball.body.collideWorldBounds = true;
   ball.body.bounce.set(1.01);
   ball.body.velocity.setTo(200,200);
+  ball.body.rotation += ball.body.velocity.x/1000;
 
 }
 
 function destroySprite() {
 
   character.kill();
+
   var score = timer;
   playerScore = ((score._now - score._started)/1000);
   getScore(playerScore);
+  console.log(score);
+  var explosionAnimation = explosion.getFirstExists(false);
+  explosionAnimation.reset(character.x, character.y);
+  explosionAnimation.play('explosion', 30, false, true);
+  audio();
 
 }
 
-function getScore(playerScore) {
-
+ function getScore(playerScore) {
   console.log(playerScore)
   deathLol(playerScore)
-
-}
+  
+  }
