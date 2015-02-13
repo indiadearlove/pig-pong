@@ -2,16 +2,20 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   </head>
   <body>
-    <div id="high-scores">
-      <div id="high-scores-table">
-        <h3> <u><%- username %></u> </h3>
-        <li> HighScore : <span id='highscore'></span> secs </li> 
-        <li> Score : <span id='score'></span> secs </li> 
-      </div>
-    </div>
-    <div id="game-mainpage"></div>
+<div class="container">
+  <div class="jumbotron shadow style-2" id="game-mainpage" style="background:#837E7C;text-align:left;border-style:ridge">
+  <div class="jumbotron" style="padding:1em;size:40em;border-style:ridge";>
+    <img src="/image/logo.png" id="logo" style="float:right;height:8.5em;width:20em;">
+   <h2 id="name" style="padding-bottom:.25em;color:red;"> <%- username %> </h4>
+   <h4>High Score: <span id="highscore"></span></h4>
+   <h4>Last Turn: <span id='score'></span></h4> 
+  </div>  
+  </div>
+</div>  
+
     <script>
      function deathLol(playerScore) {
         var score = playerScore
@@ -32,3 +36,9 @@
   <script type="text/javascript" src="js/game.js"></script>
   </body>
 </html>
+
+  <!-- <h3> <u><%- username %></u> </h3>
+          <li> HighScore : <span id='highscore'></span> </li> 
+          
+      </div>
+      </div> -->

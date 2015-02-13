@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-image: url(/image/grass.jpg);
+  background-image: url(/image/grass2.png);
   min-height: 100%;
   text-align: center;
 }
@@ -17,6 +17,7 @@ body {
 }
 
 #mud {
+  float: left;
   position: absolute;
   z-index: -5;
 }
@@ -27,21 +28,42 @@ body {
    z-index: -5;
 }
 
+
+
 #game-mainpage {
   margin: 0 0 auto;
   display: inline-block;
 }
 
+.style-2 input[type="text"] {
+ 
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-2 input[type="text"]:focus,
+.style-2 input[type="text"].focus {
+  border: solid 5px #969696;
+}
 
-/*===== GAME PAGE =======*/
+.shadow {
+  -moz-box-shadow:    20px 8px 8px 8px black;
+  -webkit-box-shadow: 8px 8px 8px 8px black;
+  box-shadow:         0px 8px 8px 8px black;
+    -moz-box-shadow:    inset 0 0 50px #000000;
+   -webkit-box-shadow: inset 1 1 20px #000000;
+   box-shadow:         inset 1 1 20px #000000;
+}
 
-#high-scores {
-  float: left;
-  display: inline;
-/*  height: 10em;
-  width: 22em;
-  margin-left: 1.3em;*/
-  background-image: url(/image/box.png) 0 0 no-repeat;
+h3 .name{
+  float: rightL
+}
+
+h3 .highscore {
+  text-align: left;
+}
+
+h3 .score {
+  text-align: right;
 }
 
 div #form-box {
