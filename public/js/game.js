@@ -46,7 +46,7 @@ function update() {
 
   if (cursors.left.isDown) { character.body.velocity.x -= 8; }
   else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
-  if (cursors.up.isDown) { character.body.velocity.y -= 8; }
+  else if (cursors.up.isDown) { character.body.velocity.y -= 8; }
   else if (cursors.down.isDown) { character.body.velocity.y += 8; }
 
 }
