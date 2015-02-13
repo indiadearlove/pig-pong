@@ -5,7 +5,7 @@ grunt.initConfig({
    mocha_casperjs: {
      options: {},
      files: {
-       src: ['test/**/*']
+       src: ['test/**/*.js']
      }
    },
    express: {

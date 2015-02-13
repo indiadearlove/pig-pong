@@ -1,3 +1,5 @@
+var Phaser;
+
 var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
 
 // Initializing game =======================================================================
@@ -11,6 +13,7 @@ function preload() {
 
 }
 
+var group;
 var character;
 var ball;
 var cursors;
@@ -19,6 +22,7 @@ var playerScore;
 var dead = false;
 var ex_sound;
 var highscore = 0;
+
 
 function create() {
 
@@ -35,7 +39,16 @@ function create() {
 
   cursors = game.input.keyboard.createCursorKeys();
   timer = game.time.create(true);
-  timer.start()
+  timer.start();
+
+  explosion = game.add.group();
+
+  for (var i = 0; i < 10; i++)
+  {
+      var explosionAnimation = explosion.create(0, 0, 'explosion', [0], false);
+      explosionAnimation.anchor.setTo(0.5, 0.5);
+      explosionAnimation.animations.add('explosion');
+  }
 
   //Explosion
 
@@ -54,12 +67,17 @@ function update() {
 
   game.physics.arcade.collide(character, group, destroySprite);
   game.physics.arcade.collide(group, group);
-  // ball.rotation += ball.body.velocity.x/1000;
 
-  if (cursors.left.isDown) { character.body.velocity.x -= 8; }
-  else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
-  if (cursors.up.isDown) { character.body.velocity.y -= 8; }
-  else if (cursors.down.isDown) { character.body.velocity.y += 8; }
+  var left = cursors.left.isDown;
+  var right = cursors.right.isDown;
+  var up = cursors.up.isDown;
+  var down = cursors.down.isDown;
+  var bodyVelocity = character.body.velocity;
+
+  if (left) { bodyVelocity.x -= 8; }
+  else if (right) { bodyVelocity.x += 8; } 
+  if (up) { bodyVelocity.y -= 8; }
+  else if (down) { bodyVelocity.y += 8; }
 
 }
 
@@ -104,9 +122,8 @@ function createBall() {
 
 function destroySprite() {
 
-  // game.world.removeAll();
-
   character.kill();  
+
   ball.destroy();
 
   //explosion
@@ -121,7 +138,7 @@ function destroySprite() {
   var score = timer;
   playerScore = ((score._now - score._started)/1000);
   getScore(playerScore);
-  console.log(score);
+  dead = true;
 
 }
 
