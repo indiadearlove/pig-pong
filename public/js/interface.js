@@ -1,3 +1,4 @@
+
 function deathLol(playerScore) {
 	var score = playerScore
 	console.log(playerScore)
@@ -6,4 +7,6 @@ function deathLol(playerScore) {
     alert(score);
     $('#score').text(score);
   }
+
 } 
+

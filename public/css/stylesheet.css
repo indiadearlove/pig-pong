@@ -3,12 +3,12 @@ html {
 }
 
 body {
-  background-image: url(/image/grass.jpg);
+  background-image: url(/image/grass2.png);
   min-height: 100%;
   text-align: center;
 }
 
-#jumbotron {
+#jumbotron #form-box {
     position: absolute;
 }
 
@@ -17,10 +17,9 @@ body {
 }
 
 #mud {
-  margin-right: 50em;
-  visibility: hidden;
+  float: left;
+  position: absolute;
   z-index: -5;
-
 }
 
 #mud2 {
@@ -29,58 +28,45 @@ body {
    z-index: -5;
 }
 
-/*#mud3 {
-   
-   display: none;
-   z-index: -5;
-}*/
+
 
 #game-mainpage {
   margin: 0 0 auto;
   display: inline-block;
 }
 
-/*#mud4 {
-  visibility: hidden;
-  display: none;
-}*/
-
-
-/*===== GAME PAGE =======*/
-
-
-#logo {
-  width: auto;
+.style-2 input[type="text"] {
+ 
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-2 input[type="text"]:focus,
+.style-2 input[type="text"].focus {
+  border: solid 5px #969696;
 }
 
-#high-scores {
-  float: left;
-  display: inline;
-  height: 10em;
-  width: 22em;
-  margin-left: 1.3em;
-  background-color: red;
+.shadow {
+  -moz-box-shadow:    20px 8px 8px 8px black;
+  -webkit-box-shadow: 8px 8px 8px 8px black;
+  box-shadow:         0px 8px 8px 8px black;
+    -moz-box-shadow:    inset 0 0 50px #000000;
+   -webkit-box-shadow: inset 1 1 20px #000000;
+   box-shadow:         inset 1 1 20px #000000;
 }
 
-.btn {
-  -webkit-border-radius: 60;
-  -moz-border-radius: 60;
-  border-radius: 60px;
-  text-shadow: 2px 3px 4px #999099;
-  -webkit-box-shadow: 0px 4px 3px #780909;
-  -moz-box-shadow: 0px 4px 3px #780909;
-  box-shadow: 0px 4px 3px #780909;
-  font-family: Arial;
-  color: #c73030;
-  font-size: 20px;
-  background: #a3a6a8;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+h3 .name{
+  float: rightL
 }
 
-.btn:hover {
-  -webkit-box-shadow: 0px 4px #780909;
-     -moz-box-shadow: 0px 4px #780909;
-          box-shadow: 0px 4px #780909;
-                 top: 2px;
+h3 .highscore {
+  text-align: left;
+}
+
+h3 .score {
+  text-align: right;
+}
+
+div #form-box {
+  background-image: url(/image/box2.png) 0 0 no-repeat;
+    
 }

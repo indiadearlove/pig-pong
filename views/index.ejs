@@ -11,21 +11,22 @@
 <body>
 
   <div class="titleandsignin">
-    <div class="container"><img src="/image/mud.png" id="mud" class="expandOpen"></div>
-    <div class="container"><img src="/image/logo.png" id="logo" class="expandOpen"></div>
-    <div class="container"><img src="/image/mud.png" id="mud2" class="expandOpen"></div>
-  </div>
+
+
+   
+    <div class="container">    <img src="/image/blood.png" id="mud" class="expandOpen"><img src="/image/logo.png" id="logo" class="expandOpen"></div>
+      <!-- <img src="/image/blood.png" id="mud2" class="expandOpen"> --></div>
+    </div>
 
   <div class="container" style="width: 40em;">
     
-    <div class="jumbotron" style="background:rgba(225, 225, 225, 0.8);color:red">
+    <div class="jumbotron form-box shadow" style="background:#837E7C;color:black;height:10em;padding:1em;">
     
-      <div class="input group">
-        <h2>Enter your name:</h2>
+      <div class="input group style-2">
+        <h2 style="font-family:helvetica">Enter your name:</h2>
         <form action="/" method="post">
-          <input name="username" class="form-control" type="text">
-          <button type="submit" id="submit" class="singlePlayer">Single Player</button>
-          <button type="submit" id="submit" class="multiplayer">Multi Player
+          <input name="username" style="color:red;text-align:center;" class="form-control style-2" type="text">
+          <input type="hidden" id="submit" class="singlePlayer">
         </form>
       </div>
 
@@ -33,15 +34,15 @@
 
   </div>
 
-  <img src="/image/mud.png" id="mud3" class="expandOpen">
+  <img src="/image/blood.png" id="mud3" class="expandOpen">
 
 </div>
 
 <script>
   $(document).ready(function() {
     setTimeout(function(){
-      $('#mud2').delay(800).fadeIn(50);
-      $('#mud3').delay(1600).fadeIn(50);
+      $('#mud3').delay(800).fadeIn(50);
+      // $('#mud3').delay(1600).fadeIn(50);
       $('#logo').delay(2200).fadeIn(50);
     });
   });  
