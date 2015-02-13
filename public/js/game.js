@@ -1,3 +1,5 @@
+var Phaser;
+
 var game = new Phaser.Game(1000, 500, Phaser.AUTO, 'game-mainpage', { preload: preload, create: create, update: update, render: render });
 
 // Initializing game =======================================================================
@@ -89,6 +91,7 @@ function destroySprite() {
   var score = timer;
   playerScore = ((score._now - score._started)/1000);
   getScore(playerScore);
+  dead = true;
 
 }
 

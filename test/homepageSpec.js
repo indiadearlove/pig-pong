@@ -38,4 +38,10 @@ describe('Homepage', function() {
 		});
 	});
 
+	it('should display a logo', function() {
+		casper.thenOpen(host + '/', function() {
+			expect('canvas').to.be.inDOM;
+		});
+	});
+
 });
