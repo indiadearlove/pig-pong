@@ -7,4 +7,6 @@ console.log(playerScore)
     alert(score);
     $('#score').text(score);
   }
+
 } 
+
