@@ -11,14 +11,14 @@
   <body>
 <div class="container">
   <div class="jumbotron shadow style-2" id="game-mainpage" style="background:#837E7C;text-align:left;border-style:ridge">
-  <div class="jumbotron" style="padding:1em;size:40em;border-style:ridge";>
-    <img src="/image/logo.png" id="logo" style="float:right;height:8.5em;width:20em;">
-   <h2 id="name" style="padding-bottom:.25em;color:red;"> <%- username %> </h4>
-   <h4>High Score: <span id="highscore"></span></h4>
-   <h4>Last Turn: <span id='score'></span></h4> 
-  </div>  
-  </div>
-</div>  
+<div class="jumbotron" style="padding:1em;border-style:ridge;height:8em">
+     <img src="/image/logo.png" id="logo" style="float:right;height:6em;width:15em;">
+     <h4 id="name" style="color:red;"> <%- username %> </h4>
+     <h5>High Score: <span id="highscore"></span></h5>
+     <h5>Last Turn: <span id='score'></span></h5> 
+   </div>  
+ </div>
+</div>
 
     <script>
 
@@ -39,8 +39,8 @@
     } 
       function audio() {
 
-          ex_sound = game.add.audio('ex_sound');
-          ex_sound.play();
+          explosion_sound = game.add.audio('explosion_sound');
+          explosion_sound.play();
 
         }
     </script>

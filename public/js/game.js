@@ -9,7 +9,7 @@ function preload() {
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
   game.load.spritesheet('explosion', 'image/explosion.png', 64, 64, 23);
-  game.load.audio('ex_sound', 'audio/explosion.mp3');
+  game.load.audio('explosion_sound', 'audio/death.mp3');
 
 }
 
