@@ -17,11 +17,13 @@
 </div>  
 
     <script>
+
      function deathLol(playerScore) {
         var score = playerScore
         console.log(playerScore)
       
       if (dead = true && score != undefined) {
+          audio();
           $('#score').text(score);
         }
 
@@ -29,6 +31,13 @@
           highscore = score;
           $('#highscore').text(score);
         }    
+
+      function audio() {
+
+          ex_sound = game.add.audio('ex_sound');
+          ex_sound.play();
+
+         }
     } 
     </script>
   <script src="https://code.jquery.com/jquery-1.11.2.js"></script>

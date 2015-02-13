@@ -88,13 +88,6 @@ function createPlayer() {
 
 }
 
-function audio() {
-
-  ex_sound = game.add.audio('ex_sound');
-  ex_sound.play();
-
-}
-
 function createBall() {
 
   ball = group.create(game.world.randomX, game.world.randomY, 'flyer', 1);
@@ -119,7 +112,6 @@ function destroySprite() {
   var explosionAnimation = explosion.getFirstExists(false);
   explosionAnimation.reset(character.x, character.y);
   explosionAnimation.play('explosion', 30, false, true);
-  audio();
 
   //highscore
 
