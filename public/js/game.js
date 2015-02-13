@@ -43,11 +43,17 @@ function update() {
 
   game.physics.arcade.collide(character, group, destroySprite);
   game.physics.arcade.collide(group, group);
+  
+  var left = cursors.left.isDown;
+  var right = cursors.right.isDown;
+  var up = cursors.up.isDown;
+  var down = cursors.down.isDown;
+  var bodyVelocity = character.body.velocity
 
-  if (cursors.left.isDown) { character.body.velocity.x -= 8; }
-  else if (cursors.right.isDown) { character.body.velocity.x += 8; } 
-  else if (cursors.up.isDown) { character.body.velocity.y -= 8; }
-  else if (cursors.down.isDown) { character.body.velocity.y += 8; }
+  if (left) { bodyVelocity.x -= 8; }
+  else if (right) { bodyVelocity.x += 8; } 
+  if (up) { bodyVelocity.y -= 8; }
+  else if (down) { bodyVelocity.y += 8; }
 
 }
 
