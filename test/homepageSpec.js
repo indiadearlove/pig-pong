@@ -24,4 +24,18 @@ describe('Homepage', function() {
 		});
 	});
 
+	it('should display a logo', function() {
+		casper.thenOpen(host + '/', function() {
+			expect('#logo').to.be.inDOM;
+		});
+	});
+
+	it('should display mud splashes', function() {
+		casper.thenOpen(host + '/', function() {
+			expect('#mud').to.be.inDOM;
+			expect('#mud2').to.be.inDOM;
+			expect('#mud3').to.be.inDOM;
+		});
+	});
+
 });
