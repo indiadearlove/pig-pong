@@ -1,2 +1,4 @@
 node_modules
 package.json
+jasmine/lib/jasmine-2.1.3
+test/coverage
