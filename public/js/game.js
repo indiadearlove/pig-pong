@@ -8,6 +8,8 @@ function preload() {
 
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
+  game.load.spritesheet('explosion', 'image/explosion.png', 64, 64, 23);
+  game.load.audio('ex_sound', 'audio/explosion.mp3');
 
 }
 
@@ -16,6 +18,8 @@ var character;
 var ball;
 var cursors;
 var timer;
+var ex_sound;
+var highscore = 0;
 
 var playerScore;
 var dead = false;
@@ -37,18 +41,27 @@ function create() {
   timer = game.time.create(true);
   timer.start();
 
+  explosion = game.add.group();
+
+  for (var i = 0; i < 10; i++)
+  {
+      var explosionAnimation = explosion.create(0, 0, 'explosion', [0], false);
+      explosionAnimation.anchor.setTo(0.5, 0.5);
+      explosionAnimation.animations.add('explosion');
+  }
+
 }
 
 function update() {
 
   game.physics.arcade.collide(character, group, destroySprite);
   game.physics.arcade.collide(group, group);
-  
+
   var left = cursors.left.isDown;
   var right = cursors.right.isDown;
   var up = cursors.up.isDown;
   var down = cursors.down.isDown;
-  var bodyVelocity = character.body.velocity
+  var bodyVelocity = character.body.velocity;
 
   if (left) { bodyVelocity.x -= 8; }
   else if (right) { bodyVelocity.x += 8; } 
@@ -77,6 +90,13 @@ function createPlayer() {
 
 }
 
+function audio() {
+
+  ex_sound = game.add.audio('ex_sound');
+  ex_sound.play();
+
+}
+
 function createBall() {
 
   ball = group.create(game.world.randomX, game.world.randomY, 'flyer', 1);
@@ -93,6 +113,16 @@ function createBall() {
 function destroySprite() {
 
   character.kill();
+  ball.destroy();
+
+  //explosion
+
+  var explosionAnimation = explosion.getFirstExists(false);
+  explosionAnimation.reset(character.x, character.y);
+  explosionAnimation.play('explosion', 30, false, true);
+  audio();
+
+  //highscore
 
   var score = timer;
   playerScore = ((score._now - score._started)/1000);
@@ -101,7 +131,10 @@ function destroySprite() {
 
 }
 
- function getScore(playerScore) {
-   console.log(playerScore);
-   deathLol(playerScore);
-  }
+function getScore(playerScore) {
+  console.log(playerScore);
+  deathLol(playerScore);
+  group.destroy()
+  game.time.reset();
+  create();
+}
