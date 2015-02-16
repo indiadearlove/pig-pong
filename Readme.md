@@ -5,8 +5,8 @@
 
 
 
-Heroku (live)
- -----------
+## Heroku (live)
+
  [Pig-Pong]: https://zombie-pig-pong.herokuapp.com/
  
  [Pig-Pong]
@@ -40,23 +40,43 @@ Heroku (live)
 * Jasmine
 * Websockets
 
-How to clone this repo
- ------------
+## How to clone this repo
+
   ```sh
 git clone https://github.com/IndiaDearlove/pig-pong.git
  ```
+ How to run tests
+----
+```sh
+cd pig-pong
+npm test
+```
 
-Github profiles of creators
-----------
+How to run locally
+----
+
+```sh
+node server.js
+```
+
+Visit http://localhost:9999/
+
+## Github profiles of creators
+
 * India - https://github.com/IndiaDearlove
 * Hannah - https://github.com/HannahCarney
 * Matteo - https://github.com/MatteoManzo
 * Charlie - https://github.com/ciawalsh
 * Jack - https://github.com/jackrubio26
 
-About
------
+## About
+
 Made during our 8th week of Makers Academy. Given the task of creating a real time game. The game engine was made using Phaser.
+
+## Screen Shots
+
+![Alt text](public/image/screenshot1.png "Optional title")
+![Alt text](public/image/screenshot2.png "Optional title")
 
  
 
