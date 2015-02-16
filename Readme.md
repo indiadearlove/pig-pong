@@ -11,17 +11,34 @@ Heroku (live)
  
  [Pig-Pong]
  
- Technologies used
- ----------
-  * Javascript
-  * JQuery
-  * Node
-  * Casper
-  * Html
-  * CSS
-  * Sublime Text
-  * Git
-  * Heroku
+## Objectives of exercise
+
+* Node
+ * Html and CSS
+ * JavaScript
+ * Testing with node
+* Front-end development
+* Test-Driven Development
+* Phaser game graphics
+
+## Job List
+
+- [x] Create a Homepage with Name Entry
+- [x] Create a Game Canvas with a user and an interaction with some sort of object.
+- [x] User Friendly Experience
+- [ ] Impliment Two Player Mode
+
+## Technologies used
+
+* Javascript
+* JQuery
+* Node
+* Html
+* CSS
+* Git
+* Heroku
+* Jasmine
+* Websockets
 
 How to clone this repo
  ------------
