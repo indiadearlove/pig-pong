@@ -5,11 +5,13 @@ var game = new Phaser.Game(700, 400, Phaser.AUTO, 'game-mainpage', { preload: pr
 // Initializing game =======================================================================
 
 function preload() {
-
+  
+  // game.load.image('background', 'image/earth.png')
   game.load.image('farmer', 'image/farmer.png');
   game.load.image('flyer', 'image/zombiepig.jpg');
   game.load.spritesheet('explosion', 'image/explosion.png', 64, 64, 23);
   game.load.audio('explosion_sound', 'audio/death.mp3');
+
 
 }
 
@@ -26,6 +28,7 @@ var highscore = 0;
 function create() {
 
   game.physics.startSystem(Phaser.Physics.ARCADE);
+  // background = game.add.tileSprite(0, 0, 700, 400, "background");
 
   group = game.add.group();
   group.enableBody = true;  
@@ -45,9 +48,11 @@ function create() {
   for (var i = 0; i < 10; i++)
   {
       var explosionAnimation = explosion.create(0, 0, 'explosion', [0], false);
+      explosionAnimation.bringToTop();
       explosionAnimation.anchor.setTo(0.5, 0.5);
       explosionAnimation.animations.add('explosion');
-  }
+
+  } 
 
 }
 
