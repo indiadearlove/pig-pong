@@ -31,11 +31,11 @@ git clone https://github.com/IndiaDearlove/pig-pong.git
 
 Github profiles of creators
 ----------
-India - https://github.com/IndiaDearlove
-Hannah - https://github.com/HannahCarney
-Matteo - https://github.com/MatteoManzo
-Charlie - https://github.com/ciawalsh
-Jack - https://github.com/jackrubio26
+* India - https://github.com/IndiaDearlove
+* Hannah - https://github.com/HannahCarney
+* Matteo - https://github.com/MatteoManzo
+* Charlie - https://github.com/ciawalsh
+* Jack - https://github.com/jackrubio26
 
 About
 -----
